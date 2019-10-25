@@ -1,5 +1,4 @@
-
-[![CircleCI](https://circleci.com/gh/cloudlinux/cloudlinux-doc.svg?style=svg)](https://circleci.com/gh/cloudlinux/cloudlinux-doc)
+[![CircleCI](https://circleci.com/gh/cloudlinux/cln-doc.svg?style=svg)](https://circleci.com/gh/cloudlinux/cln-doc)
 
 # Install dependencies
 

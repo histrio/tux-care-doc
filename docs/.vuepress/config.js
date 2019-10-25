@@ -1,12 +1,12 @@
 const urls = require("./urls-mapping.js");
 const sidebarUrls = require("./sidebar-urls");
-const _slugify = require('vuepress/lib/markdown/slugify');
+const _slugify = require("vuepress/lib/markdown/slugify");
 
 module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        'vue$': 'vue/dist/vue.esm.js'
+        vue$: "vue/dist/vue.esm.js"
       }
     }
   },
@@ -25,7 +25,7 @@ module.exports = {
         rel: "icon",
         href: "/favicon.ico"
       }
-    ],
+    ]
   ],
   locales: {
     // The key is the path for the locale to be nested under.
@@ -33,35 +33,30 @@ module.exports = {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
-      description: "CloudLinux Documentation"
-    },
-    "/ru/": {
-      lang: "ru",
-      title: "Документация",
-      description: "Документация CloudLinux"
+      description: "CLN Documentation"
     }
   },
   theme: "cloudlinux",
   markdown: {
-    slugify: (s) => {
+    slugify: s => {
       if (sidebarUrls[s]) {
         return sidebarUrls[s];
       }
       return _slugify(s);
     }
-},
+  },
 
   themeConfig: {
-    repo: "cloudlinux/cloudlinux-doc",
+    repo: "cloudlinux/cln-doc",
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
-    
-    translationSource: 'docs.cloudlinux.com',
+
+    translationSource: "docs.cln.cloudlinux.com",
     defaultURL: "/introduction/",
     redirectionMapping: urls,
     sidebarDepth: 2,
-    logo: "/logo.svg",
+    // logo: "/logo.svg", # FIXME: need to use CLN logo
     try_free: "https://cloudlinux.com/trial",
 
     social: [
@@ -111,11 +106,11 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
-        algolia: {
-          apiKey: "3990019335416f9a96a6a47d07e25187",
-          indexName: "cloudlinuxos",
-          appId: "0TCNL6CGX8"
-        },
+        // algolia: {
+        //   apiKey: "3990019335416f9a96a6a47d07e25187",
+        //   indexName: "cloudlinuxos",
+        //   appId: "0TCNL6CGX8"
+        // },
 
         sidebar: [
           {
@@ -123,68 +118,14 @@ module.exports = {
             collapsable: false,
             children: [
               "/introduction/",
-              "/cloudlinux_installation/",
-              "/control_panel_integration/",
-              "/limits/",
-              "/command-line_tools/",
-              "/lve_manager/",
-              "/cloudlinux_os_components/",
-              "/cloudlinux_os_kernel/",
-              "/for_cloudlinux_partners/",
-              "/deprecated/"
-            ]
-          }
-        ]
-      },
-      "/ru/": {
-        title: "Язык",
-        selectText: "Рус",
-        label: "Русский",
-        editLinkText: "Редактировать",
-        tryFree: "Попробовать бесплатно",
-        search: "Поиск",
-        serviceWorker: {
-          updatePopup: {
-            message: "Доступен новый контент",
-            buttonText: "Обновить"
-          }
-        },
-        algolia: {
-          apiKey: "3990019335416f9a96a6a47d07e25187",
-          indexName: "cloudlinuxos-ru",
-          appId: "0TCNL6CGX8"
-        },
-        stayInTouch: "Будем на связи",
-        bottomLinks: [
-            {
-                text: "Инструкции",
-                url: "https://cloudlinux.zendesk.com/hc/sections/115001344329-How-do-I"
-            },
-            {
-                text: "С чего начать",
-                url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
-            },
-            {
-                text: "Техподдержка",
-                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
-            },
-            { text: "Блог", url: "https://www.cloudlinux.com/blog" }
-        ],
-        sidebar: [
-          {
-            title: "Содержание",
-            collapsable: false,
-            children: [
-              "/ru/introduction/",
-              "/ru/cloudlinux_installation/",
-              "/ru/control_panel_integration/",
-              "/ru/limits/",
-              "/ru/command-line_tools/",
-              "/ru/lve_manager/",
-              "/ru/cloudlinux_os_components/",
-              "/ru/cloudlinux_os_kernel/",
-              "/ru/for_cloudlinux_partners/",
-              "/ru/deprecated/"
+              "/terminology/",
+              "/dashboard/",
+              "/billing/",
+              "/payment_methods/",
+              "/purchase/",
+              "/help/",
+              "/account_settings/",
+              "/cln_for_resellers/"
             ]
           }
         ]
