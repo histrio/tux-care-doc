@@ -52,7 +52,7 @@ module.exports = {
     docsBranch: "dev",
     docsDir: "docs",
 
-    translationSource: "docs.cln.cloudlinux.com",
+    translationSource: "docs-dev.cln.cloudlinux.com",
     defaultURL: "/introduction/",
     redirectionMapping: urls,
     sidebarDepth: 2,
