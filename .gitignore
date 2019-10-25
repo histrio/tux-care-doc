@@ -1,6 +1,7 @@
 node_modules/
 # public/
 DS_Store
+.DS_Store
 dist/
 dist-admin/
 npm-debug.log*
