@@ -10,7 +10,9 @@ Add, delete and edit servers
 Choose payment methods and buy licenses
 Track all the associated costs
 
-**_Note that in your CLN account you can see the licenses purchased directly from CloudLinux, not from the resellers._**
+:::tip Note
+In your CLN account you can see the licenses purchased directly from CloudLinux, not from the resellers.
+:::
 
 
 ## Create a new account
