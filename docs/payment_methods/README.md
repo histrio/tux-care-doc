@@ -1,15 +1,15 @@
 # Payment methods
 
-
-[Billing Information](/billing_information/)
-[Payment Method](/payment_method/)
-**_Note that only one payment method can be active in a single CLN account at a time._**
+:::tip Note
+Only one payment method can be active in a single CLN account at a time.
+:::
 
 ## Billing Information
 
 
 Click _Billing → Payment Methods → Billing Information_ to go to _Billing Information_ page.
-Here you can specify an email address for invoices. Specify an email and click _Save_ . All invoices and notifications will be sent to this email. You can change it anytime. If you didn’t specify any email, billing information and invoices are available only in the CLN UI. You can download an invoice on the _Billing → Invoices_ page.
+
+Here you can specify an email address for invoices. Specify an email and click _Save_. All invoices and notifications will be sent to this email. You can change it anytime. If you didn’t specify any email, billing information and invoices are available only in the CLN UI. You can download an invoice on the _Billing → Invoices_ page.
 
 ![](/images/billinginformation_zoom70.png)
 
@@ -21,20 +21,22 @@ Click _Billing → Payment Methods → Payment Method_ to go to _Payment Method_
 
 The following methods are available:
 
-Credit or Debit Card
-PayPal
+* Credit or Debit Card
+* PayPal
 
-**_Note that only one payment method can be active in a single CLN account at a time._**
+:::tip Note
+Only one payment method can be active in a single CLN account at a time.
+:::
 
 ![](/images/billingpaymentmethods_zoom70.png)
 
 
-**Credit or Debit Card**
+#### Credit or Debit Card
 
 Click _Add a debit or credit_ card, specify Payment Method Information. Click _Add Payment Method_ to save changes or _Cancel_ to return to _Payment Method_ page.
 To edit added debit or credit card, click _Pencil_ icon; to remove, click _Bin_ icon.
 
-**PayPal**
+#### PayPal
 
-Click _Add a PayPal account_ to connect to your PayPal account. You will be redirected to [https://www.paypal.com](https://www.paypal.com) . Please proceed further with PayPal instructions.
+Click _Add a PayPal account_ to connect to your PayPal account. You will be redirected to [https://www.paypal.com](https://www.paypal.com). Proceed further with PayPal instructions.
 

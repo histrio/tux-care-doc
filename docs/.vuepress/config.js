@@ -56,8 +56,8 @@ module.exports = {
     defaultURL: "/introduction/",
     redirectionMapping: urls,
     sidebarDepth: 2,
-    // logo: "/logo.svg", # FIXME: need to use CLN logo
-    try_free: "https://cloudlinux.com/trial",
+    logo: "/logo.png",
+    try_free: "https://cln.cloudlinux.com/console/auth/login",
 
     social: [
       { url: "https://www.facebook.com/cloudlinux/", logo: "/fb.png" },
@@ -97,7 +97,7 @@ module.exports = {
         label: "English",
         // text for the edit-on-github link
         editLinkText: "Edit this page",
-        tryFree: "Try Free",
+        tryFree: "Login to CLN",
         search: "Search",
         // config for Service Worker
         serviceWorker: {

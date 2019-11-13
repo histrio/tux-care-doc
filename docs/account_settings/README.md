@@ -6,22 +6,22 @@ To go to account details click _User_ icon → _Settings_ in the top right corne
 ![](/images/settings_zoom70.png)
 
 
-
-
 ## Personal Information
 
 
 ![](/images/personalinfo_zoom70.png)
 
 
-On the _Account Details_ page choose _ Personal Information_ . Here you can add or change your personal information and change password.
-To change password click _Change Password_ . In an opened popup specify a current and a new password. Click _ Save Changes_ to apply the changes or _Cancel_ to close the popup.
+On the _Account Details_ page choose _Personal Information_. Here you can add or change your personal information and change password.
+To change password click _Change Password_ . In an opened popup specify a current and a new password. Click _Save Changes_ to apply the changes or _Cancel_ to close the popup.
 
 
 ## How to convert your Customer account into Reseller account
 
 
-**_Please note that conversion is a critical procedure. Please contact the billing team at _**
+:::tip Note
+Conversion is a critical procedure. Please contact the billing team at billing@cloudlinux.com
+:::
 
 Go to Settings | Account details | Personal Information | Convert account
 
@@ -30,18 +30,18 @@ Go to Settings | Account details | Personal Information | Convert account
  
 ### Conversion Procedure
 
-
  
-Choose Initial Deposit Amount and click _Next_
+1. Choose Initial Deposit Amount and click _Next_
 
-![](/images/conversing_step2_zoom70.png)
+    ![](/images/conversing_step2_zoom70.png)
 
-Carefully read the Reseller Agreement and click _Accept_
+2. Carefully read the Reseller Agreement and click _Accept_
 
-![](/images/reseller_agreement_zoom70.png)
+    ![](/images/reseller_agreement_zoom70.png)
 
-Configure payment details — choose autopayment type and click _Submit payment and Continue_  _ _
-![](/images/payment_details_zoom70.png)
+3. Configure payment details — choose autopayment type and click _Submit payment and Continue_
+    
+    ![](/images/payment_details_zoom70.png)
 
 ## Company Information
 
@@ -49,7 +49,7 @@ Configure payment details — choose autopayment type and click _Submit payment 
 ![](/images/companyinformation_zoom70.png)
 
 
-On the _Account Details_ page choose _ Company Information_ . Here you can add or change company information.
+On the _Account Details_ page choose _Company Information_. Here you can add or change company information.
 
 
 ## Multi-user support
@@ -64,60 +64,59 @@ You can choose one of the roles with special privileges for your sub logins.
 ### Roles
 
 
+#### Full Access/Admin
+* View products
+* View servers/licenses information
+* Reporting
+* Add/delete servers
+* Create activation keys
+* Order/delete licenses
+* View invoices
+* View billing information
+* Edit credit cards information
+* Edit account information
+* Edit billing information/top up for a reseller
+* View prices
+* View account information
+* Change password
 
-**Full Access/Admin**
-View products
-View servers/licenses information
-Reporting
-Add/delete servers
-Create activation keys
-Order/delete licenses
-View invoices
-View billing information
-Edit credit cards information
-Edit account information
-Edit billing information/top up for a reseller
-View prices
-View account information
-Change password
+#### Billing
+* View products
+* View servers/licenses information
+* View invoices
+* View billing information
+* Edit credit cards information
+* Edit account information
+* Edit billing information/top up for a reseller
+* View prices
+* View account information
 
-**Billing**
-View products
-View servers/licenses information
-View invoices
-View billing information
-Edit credit cards information
-Edit account information
-Edit billing information/top up for a reseller
-View prices
-View account information
+#### Server and License Management
+* View products
+* View servers/licenses information
+* Reporting
+* Add/delete servers
+* Create activation keys
+* Order/delete licenses
 
-**Server and License Management**
-View products
-View servers/licenses information
-Reporting
-Add/delete servers
-Create activation keys
-Order/delete licenses
+#### Server Management Only
+* View products
+* View servers/licenses information
+* Reporting
+* Add/delete servers
+* Create activation keys
 
-**Server Management Only**
-View products
-View servers/licenses information
-Reporting
-Add/delete servers
-Create activation keys
+#### Read Only — Billing
+* View products
+* View servers/licenses information
+* Reporting
+* View invoices
+* View billing information
 
-**Read Only — Billing**
-View products
-View servers/licenses information
-Reporting
-View invoices
-View billing information
-
-**Read Only — Server Management**
-View products
-View servers/licenses information
-Reporting
+#### Read Only — Server Management
+* View products
+* View servers/licenses information
+* Reporting
 
 
 ## Reports
