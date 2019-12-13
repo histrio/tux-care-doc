@@ -1,12 +1,7 @@
 {
-  "index_name": "cloudlinuxos",
-  "start_urls": [
-    "http://docs.cloudlinux.com"
-  ],
-  "stop_urls": [
-    "/#",
-    "https://docs.cloudlinux.com/ru/"
-  ],
+  "index_name": "cln",
+  "start_urls": ["https://docs.cln.cloudlinux.com"],
+  "stop_urls": ["/#", "https://docs.cln.cloudlinux.com/ru/"],
   "selectors": {
     "lvl0": ".content h1",
     "lvl1": ".content h2",
@@ -24,13 +19,8 @@
   },
   "strip_chars": " .,;:#",
   "custom_settings": {
-    "attributesForFaceting": [
-      "lang"
-    ]
+    "attributesForFaceting": ["lang"]
   },
-  "selectors_exclude": [
-    ".table-of-contents"
-  ],
-  "scrap_start_urls": false,
-  "nb_hits": 4691
+  "selectors_exclude": [".table-of-contents"],
+  "scrap_start_urls": false
 }

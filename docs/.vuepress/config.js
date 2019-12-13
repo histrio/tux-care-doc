@@ -106,11 +106,11 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
-        // algolia: {
-        //   apiKey: "3990019335416f9a96a6a47d07e25187",
-        //   indexName: "cloudlinuxos",
-        //   appId: "0TCNL6CGX8"
-        // },
+        algolia: {
+          apiKey: "849c48c0cc93b6799db18c91b7a949fe",
+          indexName: "cln",
+          appId: "EDEID92T9D"
+        },
 
         sidebar: [
           {
