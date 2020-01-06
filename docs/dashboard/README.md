@@ -433,6 +433,85 @@ The following actions are available:
 * **Filter by any search query** — type a query. A search is performed in _Server name_ and _Activation key_ entities.
 * **Buy server license** — click _Buy Server Licenses_ button, you will be redirected to the [Purchase](/purchase/#purchase) page.
 
+### Server groups
+
+The _Server groups_ feature allows you to add servers in one group and perform global actions on this group (and thereby on all servers included in this group).
+
+#### How to create a group
+
+* Go to _Servers_ and select a required product, then click _Manage server groups_
+    
+    ![](/images/manage_server_groups.png)
+  
+* Click _Create your first group_ or _Create new group_
+
+    ![](/images/create_group.png)
+
+* Type a group name and description if needed
+
+    ![](/images/new_group.png)
+
+* Then click _Save_ to apply changes or click _Cancel_ to close the popup.
+* Close the popup.
+
+#### How to remove a group
+
+* Go to _Servers_ and click _Manage server groups_
+
+    ![](/images/manage_group.png)
+
+* Select a group and click _Bin_ (![](/images/bin.png))
+* When the group is removed you can close the popup
+
+#### How to add a server to a group
+
+* Go to _Servers_ and select a required product. Click ![](/images/plus.png) in the _Group_ column.
+
+    ![](/images/add_server.png)
+
+* Choose a group from the list or create a new one by typing its name
+
+    ![](/images/add_item.png)
+
+* Click _Add to group_ to apply changes or click _Cancel_ to close the popup
+* You will see that the server is added to the group
+
+    ![](/images/added_result.png)
+
+* Or for group action, select servers in the list and click _Add to server group_.
+
+    ![](/images/add_mass_action.png)
+
+#### How to remove a server from a group
+
+* Go to _Servers_ and click _Manage server groups_
+
+    ![](/images/manage_group.png)
+
+* Scroll to _Servers_ and click ![](/images/cross.png) for a server to be removed from the group
+
+    ![](/images/remove_server.png)
+
+* Then click _Save_ to apply changes or click _Cancel_ to close the popup
+* Close the popup
+
+#### How to move a server from one group to another
+
+* Go to _Servers_, select server(s) in the list and click _Add to server group_
+
+    ![](/images/add_mass_action.png)
+
+* Choose a group or create a new one and click _Add to group_
+
+    ![](/images/move_to_another_group.png)
+
+* The server(s) will be moved to another group 
+
+  
+
+
+
+
 
 ## CloudLinux Backup
 
