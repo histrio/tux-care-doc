@@ -1,7 +1,7 @@
 # CLN For Resellers
 
 :::tip Note
-You can [download](https://docs.cln.cloudlinux.com/cloudlinux-rest-api.pdf) CloudLinux REST API documentation.
+You can [download](/cloudlinux-rest-api.pdf) CloudLinux REST API documentation.
 :::
 
 ## Registration
