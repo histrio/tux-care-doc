@@ -1,7 +1,10 @@
 # CLN For Resellers
 
-## Registration
+:::tip Note
+You can [download](/downloads/cloudlinux-rest-api.pdf) CloudLinux REST API documentation.
+:::
 
+## Registration
 
 Please contact our billing team to assist you with registration at billing@cloudlinux.com.
 
