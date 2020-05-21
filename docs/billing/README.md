@@ -82,3 +82,5 @@ To pay invoices under a customer, follow the next steps:
 3. After choosing the direct payment option you'll be redirected to the PayPal page
 
     ![](/images/clncloudlinuxpaypal_zoom60.png)
+	
+<Disqus/>

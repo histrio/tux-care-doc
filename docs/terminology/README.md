@@ -15,4 +15,4 @@
     * For cPanel, Plesk, and DirectAdmin hosting panels it calculates the number of users in it, excluding system users.
     * For standalone installation, it calculates users with UID equal or more than 500 in CentOS 6 and UID equal or more than 1000 in CentOS 7.
 
-
+<Disqus/>
