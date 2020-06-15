@@ -186,7 +186,9 @@ Below we will show what steps to proceed to prepare such connection:
 
 _Fig 6: Creating relation directly between server and license provisioning modules._
 
-### Link Add-ons Directly<sup>WHMCS 7.2.x+</sup>
+### Link Add-ons Directly
+
+_[for WHMCS 7.2.x and newer]_
 
 WHMCS 7.2 introduces the ability to associate <span class="notranslate">Product Add-ons</span> with <span class="notranslate">Provisioning Modules</span>.
 
@@ -200,6 +202,16 @@ In order to allow your client to decide whether he wants to order server with or
 ![](/images/fig6configurationofproductaddon_zoom50.png)
 
 _Fig 7: Configuration of product add-on with Provisioning Modules._
+
+### CloudLinux OS Key Licenses
+
+1. To set CloudLinux OS Key license while adding service in Module Settings do the following:
+
+* choose **_CloudLinux_** in _License Type_ drop-down;
+* mark _Use Key_ (instead of IP address) checkbox;
+* enter IP registration token (API secret key) from Profile page in CLN;
+* in _Key Limit_ field enter the number of servers and click _Save Changes;_
+* the _License Key Custom Field_ will be automatically added.
 
 ### KernelCare Key Licenses
 
@@ -222,15 +234,6 @@ _Fig 7: Configuration of product add-on with Provisioning Modules._
 |![](/images/fig8licensekeycustomfield_zoom70.png)|
 |Fig 9.2: License Key Custom Field is displayed while editing service.|
 
-2. To edit service do the following:
-* when _Service Created Successfully_ message appears, you can edit _Service_;
-* specify all proper information and settings and click _Save Changes._
-
-| |
-:-------------------------: 
-|![](/images/fig9editingservice._zoom70.png)|
-|Fig 10.2: Editing service.|
-
 ### Imunify360 Key Licenses
 
 1. To set Imunify360 Key license while adding service in <span class="notranslate">Module Settings</span>, do the following:
@@ -248,7 +251,8 @@ _Fig 8.3: Imunify360 Product settings._
    * the <span class="notranslate">_License Key Custom Field_</span> will be automatically added
    * the <span class="notranslate">_License Key Custom Field_</span> is displayed while editing service
 
-2. To edit service do the following:
+#### To edit a service do the following:
+
      * when <span class="notranslate">_Service Created Successfully_</span> message appears, you can edit <span class="notranslate">_Service_</span>
      * enter information and settings and click <span class="notranslate">_Save Changes_</span>
 
@@ -333,7 +337,9 @@ You can filter the list of licenses by client name, server provisioning products
 _Fig 18: Licenses List._
 
 
-###  Add-on Licenses List<sup>WHMCS 7.2.x+</sup>
+###  Add-on Licenses List
+
+_[for WHMCS 7.2.x and newer]_
 
 You can view list of all product add-on with <span class="notranslate">Provisioning Modules</span> licenses owned by your client at our addon → <span class="notranslate">Licenses List</span>.
 
