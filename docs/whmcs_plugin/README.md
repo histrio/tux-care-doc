@@ -133,6 +133,7 @@ The following steps must be performed to prepare such connection:
 ![](/images/fig3configurationofproductaddon1_zoom50.png)
 
 ![](/images/fig3configurationofproductaddon2_zoom50.png)
+
 _Fig 3: Configuration of product add-on, which will trigger license product adding._
 
 
@@ -140,6 +141,7 @@ _Fig 3: Configuration of product add-on, which will trigger license product addi
 2. Select previously created product add-on and license product as shown below and click <span class="notranslate">_Add Relation_</span>.
 
 ![](/images/fig4creatingrelation_zoom70.png)
+
 _Fig 4: Creating relation between product add-on and provisioning module._
 
 ### Link Products Directly
@@ -156,6 +158,7 @@ Please do not set up pricing for license provisioning product. In exchange, you 
 3. Select server provisioning product from the Main product drop-down list and license provisioning product from the <span class="notranslate">_Linked Product With License_</span> and click <span class="notranslate">_Add Relation_</span>.
 
 ![](/images/fig5creatingrelationdirectly_zoom70.png)
+
 _Fig 5: Creating relations directly between server and license provisioning modules._
 
 
@@ -198,8 +201,37 @@ In order to allow your client to decide whether he wants to order server with or
 
 _Fig 7: Configuration of product add-on with Provisioning Modules._
 
-### Imunify360 Key Licenses
+### KernelCare Key Licenses
 
+1. To set KernelCare Key license while adding service in Module Settings do the following:
+
+* choose **_KernelCare_** in _License Type_ drop-down;
+* mark _Use Key_ (instead of IP address) checkbox;
+* enter IP registration token (API secret key) from Profile page in CLN;
+* in _Key Limit_ field enter the number of servers and click _Save Changes;_
+  
+| |
+:-------------------------: 
+|![](/images/fig7setupkernelcarelicense_zoom70.png)|
+|Fig 8.2: Setup KernelCare License.|
+
+* the _License Key Custom Field_ will be automatically added.
+
+| |
+:-------------------------: 
+|![](/images/fig8licensekeycustomfield_zoom70.png)|
+|Fig 9.2: License Key Custom Field is displayed while editing service.|
+
+2. To edit service do the following:
+* when _Service Created Successfully_ message appears, you can edit _Service_;
+* specify all proper information and settings and click _Save Changes._
+
+| |
+:-------------------------: 
+|![](/images/fig9editingservice._zoom70.png)|
+|Fig 10.2: Editing service.|
+
+### Imunify360 Key Licenses
 
 1. To set Imunify360 Key license while adding service in <span class="notranslate">Module Settings</span>, do the following:
 
@@ -210,7 +242,8 @@ _Fig 7: Configuration of product add-on with Provisioning Modules._
    * in <span class="notranslate">_Key Limit_</span> field enter the number of servers and click <span class="notranslate">_Save Changes_</span>
 
 ![](/images/fig7imunify360productsettings_zoom50.png)
-_Fig 8: Imunify360 Product settings._
+
+_Fig 8.3: Imunify360 Product settings._
 
    * the <span class="notranslate">_License Key Custom Field_</span> will be automatically added
    * the <span class="notranslate">_License Key Custom Field_</span> is displayed while editing service
@@ -220,7 +253,8 @@ _Fig 8: Imunify360 Product settings._
      * enter information and settings and click <span class="notranslate">_Save Changes_</span>
 
 ![](/images/fig8imunify360servicesettings_zoom50.png)
-_Fig 9: Imunify360 Service settings._
+
+_Fig 9.3: Imunify360 Service settings._
 
 
 ### Order
@@ -229,7 +263,8 @@ _Fig 9: Imunify360 Service settings._
 All the services registered in the account are displayed in <span class="notranslate">_My Products & Services_</span> area. When you choose a particular Product/Service and click <span class="notranslate">_View Details_</span>, you can view Product information, change license key, view Add-ons or make changes in <span class="notranslate">Management Actions</span> section.
 
 ![](/images/fig9clientproductslist_zoom50.png)
-_Fig 10: Client’s products list._
+
+_Fig 10.1: Client’s products list._
 
 ![](/images/fig10licensesdetails_zoom50.png)
 
@@ -239,6 +274,7 @@ To order and purchase a new service do the following:
 * choose <span class="notranslate">_Category → Imunify360 Group_</span> and click <span class="notranslate">_Order Now_</span> on a particular service
 
 ![](/images/fig11orderproductsgroup_zoom50.png)
+
 _Fig 12: Order - Products group._
 
 * choose <span class="notranslate">_Billing Cycle_</span> if possible
@@ -293,6 +329,7 @@ You can view the list of all licenses owned by your client at our add-on → <sp
 You can filter the list of licenses by client name, server provisioning products, license provisioning products and license IP address/Key.
 
 ![](/images/fig18licenseslist_zoom70.png)
+
 _Fig 18: Licenses List._
 
 
@@ -301,6 +338,7 @@ _Fig 18: Licenses List._
 You can view list of all product add-on with <span class="notranslate">Provisioning Modules</span> licenses owned by your client at our addon → <span class="notranslate">Licenses List</span>.
 
 ![](/images/fig19addonlicenseslist_zoom70.png)
+
 _Fig 19: Add-on Licenses List._
 
 ## Common Problems
@@ -311,4 +349,8 @@ After activating the server provisioning product, license provisioning product b
 **Reason**: License IP address may be already taken.
 **Solution**: Change server IP address.
 
+:::tip Note
+Currently, only key-based licenses are available for Imunify360. Support of IP-based licenses will be added soon.
+:::
 
+<Disqus/>
