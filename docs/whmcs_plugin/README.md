@@ -251,10 +251,10 @@ _Fig 8.3: Imunify360 Product settings._
    * the <span class="notranslate">_License Key Custom Field_</span> will be automatically added
    * the <span class="notranslate">_License Key Custom Field_</span> is displayed while editing service
 
-#### To edit a service do the following:
+#### Updating a service
 
-     * when <span class="notranslate">_Service Created Successfully_</span> message appears, you can edit <span class="notranslate">_Service_</span>
-     * enter information and settings and click <span class="notranslate">_Save Changes_</span>
+  * when <span class="notranslate">_Service Created Successfully_</span> message appears, you can edit <span class="notranslate">_Service_</span>
+  * enter information and settings and click <span class="notranslate">_Save Changes_</span>
 
 ![](/images/fig8imunify360servicesettings_zoom50.png)
 
