@@ -163,7 +163,8 @@ module.exports = {
               "/purchase/",
               "/help/",
               "/account_settings/",
-              "/cln_for_resellers/"
+              "/cln_for_resellers/",
+              "/whmcs_plugin/"
             ]
           }
         ]
