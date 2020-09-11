@@ -40,4 +40,3 @@ To edit added debit or credit card, click _Pencil_ icon; to remove, click _Bin_ 
 
 Click _Add a PayPal account_ to connect to your PayPal account. You will be redirected to [https://www.paypal.com](https://www.paypal.com). Proceed further with PayPal instructions.
 
-<Disqus/>

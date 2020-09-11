@@ -524,4 +524,3 @@ The table includes  the following columns:
     In the opened popup confirm the action by clicking _Remove_ or click _Cancel_ to close the popup.
     * **Relink** —  for a backup not associated with a server. Click to connect a backup to a specific server. Confirm the action in the popup or click _Cancel_ to close the popup.
 
-<Disqus/>

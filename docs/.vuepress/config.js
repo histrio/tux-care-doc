@@ -35,7 +35,7 @@ module.exports = {
       before: info => `<div class="danger custom-block"><p class="custom-block-title">${info}</p>`,
       after: '</div>',
     }],
-    ['disqus', { shortname: 'docscloudlinuxcom' }],
+//    ['disqus', { shortname: 'docscloudlinuxcom' }],
     ['@vuepress/google-analytics',
       {
         'ga': 'UA-12711721-12'
@@ -114,17 +114,17 @@ module.exports = {
           {
             text: "How to",
             url:
-              "https://cloudlinux.zendesk.com/hc/sections/115001344329-How-do-I"
+              "https://cloudlinux.zendesk.com/hc/en-us/categories/115000748789-Billing-Licensing"
           },
+//          {
+//            text: "Getting started",
+//            url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
+//          },
           {
-            text: "Getting started",
-            url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
+            text: "Report an error in documentation",
+            url: "https://direct.lc.chat/7898891/5"
           },
-          {
-            text: "Contact support",
-            url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
-          },
-          { text: "Blog", url: "https://www.cloudlinux.com/blog" }
+          { text: "Blog", url: "https://blog.cloudlinux.com" }
         ],
 
         // text for the language dropdown title

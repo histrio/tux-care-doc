@@ -83,4 +83,3 @@ To pay invoices under a customer, follow the next steps:
 
     ![](/images/clncloudlinuxpaypal_zoom60.png)
 	
-<Disqus/>

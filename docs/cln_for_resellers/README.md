@@ -171,4 +171,4 @@ Click ![](/images/clnarrow.png) near invoice id to show detailed bill informatio
 * Quantity — licenses quantity
 * SubTotal — the price for that number of licenses
 
-<Disqus/>
+

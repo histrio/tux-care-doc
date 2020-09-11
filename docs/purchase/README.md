@@ -59,4 +59,4 @@ The _Cart Table_ contains the following columns:
 * **Total amount** — the total amount of money you should pay for the selected number of licenses
 * **Actions** — you can remove an item from the cart. Click _Bin_ icon and proceed with confirming your action
 
-<Disqus/>
+

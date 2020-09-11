@@ -126,4 +126,3 @@ It is possible to set reports receiving for an account to the desired email addr
 
 ![](/images/reports_zoom70.png)
 
-<Disqus/>
