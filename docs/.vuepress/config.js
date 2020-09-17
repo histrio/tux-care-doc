@@ -12,10 +12,10 @@ const slugifyLinks = (s) => {
 // set your global autometa options
 const autoMetaOptions = {
   site: {
-    name   : 'CloudLinux Network Documentation',
+    name   : 'CentOS Extended Support Documentation',
     // twitter: 'cln_docs',
   },
-  canonical_base: 'https://docs.cln.cloudlinux.com/',
+  canonical_base: 'https://docs.els-centos.cloudlinux.com',
 };
 
 module.exports = {
@@ -36,11 +36,11 @@ module.exports = {
       after: '</div>',
     }],
 //    ['disqus', { shortname: 'docscloudlinuxcom' }],
-    ['@vuepress/google-analytics',
-      {
-        'ga': 'UA-12711721-12'
-      }
-    ],
+   // ['@vuepress/google-analytics',
+  //    {
+  //      'ga': 'UA-12711721-12'
+  //    }
+  //  ],
     [ 'autometa', autoMetaOptions ]
   ],
   configureWebpack: {
@@ -73,7 +73,7 @@ module.exports = {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
-      description: "CLN Documentation"
+      description: "CentOS Extended Support"
     }
   },
   theme: "cloudlinux",
@@ -85,13 +85,13 @@ module.exports = {
   },
 
   themeConfig: {
-    repo: "cloudlinux/cln-doc",
+    repo: "cloudlinux/els-centos-doc",
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
 
     translationSource: "docs-dev.cln.cloudlinux.com",
-    defaultURL: "/introduction/",
+    defaultURL: "/centos6/",
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.png",
@@ -144,27 +144,18 @@ module.exports = {
             buttonText: "Refresh"
           }
         },
-        algolia: {
-          apiKey: "849c48c0cc93b6799db18c91b7a949fe",
-          indexName: "cln",
-          appId: "EDEID92T9D"
-        },
+      //  algolia: {
+      //    apiKey: "849c48c0cc93b6799db18c91b7a949fe",
+      //    indexName: "cln",
+      //    appId: "EDEID92T9D"
+      //  },
 
         sidebar: [
           {
             title: "Content",
             collapsable: false,
             children: [
-              "/introduction/",
-              "/terminology/",
-              "/dashboard/",
-              "/billing/",
-              "/payment_methods/",
-              "/purchase/",
-              "/help/",
-              "/account_settings/",
-              "/cln_for_resellers/",
-              "/whmcs_plugin/"
+              "/centos6/"
             ]
           }
         ]

@@ -1,20 +1,3 @@
 {
-  "/introduction.htm/": "/introduction/",
-  "/introduction.htm": "/introduction/",
-  "/index.html?introduction.htm": "/introduction/",
-  "/create_a_new_account.htm/": "/introduction/#create-a-new-account",
-  "/create_a_new_account.htm": "/introduction/#create-a-new-account",
-  "/index.html?create_a_new_account.htm": "/introduction/#create-a-new-account",
-  "/log_in.htm/": "/introduction/#log-in",
-  "/log_in.htm": "/introduction/#log-in",
-  "/index.html?log_in.htm": "/introduction/#log-in",
-  "/server_license_check.htm/": "/introduction/#server-license-check",
-  "/server_license_check.htm": "/introduction/#server-license-check",
-  "/index.html?server_license_check.htm": "/introduction/#server-license-check",
-  "/terminology.htm/": "/terminology/",
-  "/terminology.htm": "/terminology/",
-  "/index.html?terminology.htm": "/terminology/",
-  "/dashboard.htm/": "/dashboard/",
-  "/dashboard.htm": "/dashboard/",
-  "/index.html?dashboard.htm": "/dashboard/"
+
 }
