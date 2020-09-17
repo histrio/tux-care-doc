@@ -5,7 +5,8 @@ on:
   push:
     branches: 
     - dev
-  
+
+jobs:  
  publish:
     runs-on: ubuntu-latest
     steps:
