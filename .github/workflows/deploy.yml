@@ -21,4 +21,4 @@ jobs:
         with:
           dir: dist
           branch: gh-pages
-          token: ${{ secrets.1b0eece53be8962a5128c7baf6fd02b45e779a83 }}
+          token: ${{ secrets.ACCESS_TOKEN }}
