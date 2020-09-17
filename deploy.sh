@@ -20,6 +20,6 @@ git add -A
 git commit -m 'deploy [skip ci]'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:cloudlinux/docs.els-centos.git master:gh-pages
+git push -f git@github.com:cloudlinux/els-centos-docs.git master:gh-pages
 
 cd -
