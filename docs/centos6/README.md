@@ -82,5 +82,3 @@ https://repo.cloudlinux.com/centos/6/os/x86_64//Packages/mc-4.7.0.2-6.el6.x86_64
 
 Here we can see that yum will use our host repo.cloudlinux.com instead of a CentOS mirror.
 
-## FAQ
-
