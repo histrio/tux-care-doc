@@ -10,15 +10,12 @@ jobs:
  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
-        uses: actions/checkout@v1
-
-#      - name: Generate your awesome content
-#        run: # Your amazing generate action
-
-      - name: Publish generated content to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+      - name: Checkout
+        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
-          dir: dist
-          branch: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}
+              persist-credentials: false
+
+      - name: Install and Build 🔧 # 
+        run: |
+            yarn
+            yarn docs:build
