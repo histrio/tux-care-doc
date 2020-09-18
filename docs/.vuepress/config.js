@@ -94,7 +94,7 @@ module.exports = {
     defaultURL: "/centos6/",
     redirectionMapping: urls,
     sidebarDepth: 2,
-    logo: "/logo.png",
+    logo: "/logo.svg",
     try_free: "https://cln.cloudlinux.com/console/auth/login",
 
     social: [
