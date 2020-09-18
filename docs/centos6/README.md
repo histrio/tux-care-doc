@@ -4,15 +4,15 @@
 
 CentOS 6 extended support from CloudLinux allows you to continue running your CentOS 6 server after the end of CentOS 6 support in November 2020.
 
-CloudLinux provides CentOS 6 extended support through the year of 2024.
+CloudLinux provides CentOS 6 extended support through the year 2024.
 
-CentOS 6 extended support from CloudLinux doesn't require migration. You just run an installer script that add a new repository file. No reboot is necessary.
+CentOS 6 extended support from CloudLinux doesn't require migration. You just run an installer script that adds a new repository file. No reboot is necessary.
 
 We provide continual updates for Apache, PHP, MySQL, Glibc, OpenSSL, OpenSSH, and cPanel. See the full list of supported packages [here](https://cloudlinux.com/extended-supported-packages).
 
 A free 30-day trial for 5 servers or less is available by request. Complete the form [here](https://www.cloudlinux.com/extended-lifecycle) or contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we'll get you setup.
 
-## Enable CentOS 6 ELS Repository
+## Enabling CentOS 6 ELS Repository
 
 To enable the CentOS 6 ELS repository on a server, follow these steps:
 
