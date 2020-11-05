@@ -80,5 +80,27 @@ Loading mirror speeds from cached hostfile
 https://repo.cloudlinux.com/centos/6/os/x86_64//Packages/mc-4.7.0.2-6.el6.x86_64.rpm
 ```
 
-Here we can see that yum will use our host repo.cloudlinux.com instead of a CentOS mirror.
+Here we can see that yum will use our host `repo.cloudlinux.com` instead of a CentOS mirror.
+
+## How to create CentOS 6 ELS mirror
+
+We provide an opportunity to create local mirrors of our centos6-els repositories.
+
+**To obtain the access to the local mirroring, create a [support ticket](https://cloudlinux.zendesk.com/hc/requests/new)** and provide your External IP address. Provide your ticket number to your account manager or [sales@cloudlinux.com](mailto:sales@cloudlinux.com).
+
+
+Use `rsync` to create a local mirror.
+
+
+To create a local mirror of repo with centos6-els security updates you need to use `rsync://repo.cloudlinux.com/CENTOS6ELS/`
+
+
+To create a local mirror of CentOS 6 you need to use `rsync://repo.cloudlinux.com/CENTOS6/`
+
+For example:
+
+```
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6ELS/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/
+```
 
