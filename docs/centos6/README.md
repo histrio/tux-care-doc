@@ -46,7 +46,7 @@ python install-centos6-els-repo.py --license-key XXX-XXXXXXXXXXXX
 Currently, the repository contains only a single `centos-els-release` package and intended for demonstration purposes. We are going to populate it with real updates later. You will be able to receive a new real key in CLN that will allow you to receive real updates as soon as we will be ready to populate them.
 
 
-## Switching to ELS mirrors
+## Switching to use only ELS mirrors
 
 Starting from the `centos-els-release-6-6.10.2.el6` version (released on 2020-09-08) our `centos-els-release` package will obsolete the `centos-release` package in order to switch clients to use our CentOS ELS repositories instead of upstream ones. Basically, the `base`, `updates`, `extras`, `centosplus`, `contrib`, and `fasttrack` repositories will be reconfigured for our mirrors.
 
@@ -104,3 +104,9 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6ELS/
 rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/
 ```
 
+## Outbound firewall settings
+
+In order to use ELS for CentOS, you need to opent TCP port 443 to the following destinations:
+- cln.cloudlinux.com
+- repo.cloudlinux.com
+- els.rollout.cloudlinux.com
