@@ -10,7 +10,9 @@ CentOS 6 extended support from CloudLinux doesn't require migration. You just ru
 
 We provide continual updates for Apache, PHP, MySQL, Glibc, OpenSSL, OpenSSH, and cPanel. See the full list of supported packages [here](https://cloudlinux.com/extended-supported-packages).
 
-A free 30-day trial for 5 servers or less is available by request. Complete the form [here](https://www.cloudlinux.com/extended-lifecycle) or contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we'll get you setup.
+:::warning
+There are no trials available for CentOS Extended Lifecycle Support
+:::
 
 ## Enabling CentOS 6 ELS Repository
 
@@ -46,7 +48,7 @@ python install-centos6-els-repo.py --license-key XXX-XXXXXXXXXXXX
 Currently, the repository contains only a single `centos-els-release` package and intended for demonstration purposes. We are going to populate it with real updates later. You will be able to receive a new real key in CLN that will allow you to receive real updates as soon as we will be ready to populate them.
 
 
-## Switching to ELS mirrors
+## Switching to use only ELS mirrors
 
 Starting from the `centos-els-release-6-6.10.2.el6` version (released on 2020-09-08) our `centos-els-release` package will obsolete the `centos-release` package in order to switch clients to use our CentOS ELS repositories instead of upstream ones. Basically, the `base`, `updates`, `extras`, `centosplus`, `contrib`, and `fasttrack` repositories will be reconfigured for our mirrors.
 
@@ -104,3 +106,9 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6ELS/
 rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/
 ```
 
+## Outbound firewall settings
+
+In order to use ELS for CentOS, you need to opent TCP port 443 to the following destinations:
+- cln.cloudlinux.com
+- repo.cloudlinux.com
+- els.rollout.cloudlinux.com
