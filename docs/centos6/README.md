@@ -10,7 +10,9 @@ CentOS 6 extended support from CloudLinux doesn't require migration. You just ru
 
 We provide continual updates for Apache, PHP, MySQL, Glibc, OpenSSL, OpenSSH, and cPanel. See the full list of supported packages [here](https://cloudlinux.com/extended-supported-packages).
 
-A free 30-day trial for 5 servers or less is available by request. Complete the form [here](https://www.cloudlinux.com/extended-lifecycle) or contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we'll get you setup.
+:::warning
+There are no trials available for CentOS Extended Lifecycle Support
+:::
 
 ## Enabling CentOS 6 ELS Repository
 
