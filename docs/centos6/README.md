@@ -50,7 +50,9 @@ Currently, the repository contains only a single `centos-els-release` package an
 
 ## Switching to use only ELS mirrors
 
-Starting from the `centos-els-release-6-6.10.2.el6` version (released on 2020-09-08) our `centos-els-release` package will obsolete the `centos-release` package in order to switch clients to use our CentOS ELS repositories instead of upstream ones. Basically, the `base`, `updates`, `extras`, `centosplus`, `contrib`, and `fasttrack` repositories will be reconfigured for our mirrors.
+Starting from the `centos-els-release-6-6.10.2.el6` version (released on 2020-09-08) our `centos-els-release` package will obsolete the `centos-release` package in order to switch clients to use our CentOS ELS repositories instead of upstream ones.
+
+Basically, the `base`, `updates`, `extras`, `centosplus`, `contrib`, and `fasttrack` repositories will be reconfigured for our mirrors.
 
 Already registered users will receive this update from our `centos6-els` repository with the following commands:
 
