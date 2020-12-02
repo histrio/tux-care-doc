@@ -14,7 +14,7 @@ We provide continual updates for Apache, PHP, MySQL, Glibc, OpenSSL, OpenSSH, an
 There are no trials available for CentOS Extended Lifecycle Support
 :::
 
-## Enabling CentOS 6 ELS Repository
+## Enabling CentOS 6 ELS Repository (If you are not using local mirror)
 
 To enable the CentOS 6 ELS repository on a server, follow these steps:
 
