@@ -2,6 +2,10 @@
 
 ## Introduction
 
+:::warning
+You do not need ELS for CentOS 6 subscription if you are already using CloudLinux OS 6. Find more information [here](https://docs.cln.cloudlinux.com/billing/#cloudlinux-os-6-extended-lifecycle-support)
+:::
+
 CentOS 6 extended support from CloudLinux allows you to continue running your CentOS 6 server after the end of CentOS 6 support in November 2020.
 
 CloudLinux provides CentOS 6 extended support through the year 2024.
