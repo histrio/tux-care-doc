@@ -112,19 +112,19 @@ module.exports = {
         stayInTouch: "Stay in touch",
         bottomLinks: [
           {
-            text: "How to",
+            text: "FAQ",
             url:
-              "https://cloudlinux.zendesk.com/hc/en-us/categories/115000748789-Billing-Licensing"
+              "https://www.cloudlinux.com/extended-lifecycle#faq"
           },
 //          {
 //            text: "Getting started",
 //            url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
 //          },
           {
-            text: "Report an error in documentation",
-            url: "https://direct.lc.chat/7898891/5"
+            text: "Contact support",
+            url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
           },
-          { text: "Blog", url: "https://blog.cloudlinux.com" }
+          { text: "Blog", url: "https://blog.cloudlinux.com/tag/centos-6-els" }
         ],
 
         // text for the language dropdown title
