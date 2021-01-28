@@ -94,7 +94,7 @@ Here we can see that yum will use our host `repo.cloudlinux.com` instead of a Ce
 
 We provide an opportunity to create local mirrors of our centos6-els repositories.
 
-**To obtain the access to the local mirroring, create a [support ticket](https://cloudlinux.zendesk.com/hc/requests/new)** and provide your External IP address. Provide your ticket number to your account manager or [sales@cloudlinux.com](mailto:sales@cloudlinux.com).
+To obtain the access to the local mirroring, provide your External IP address to your Account Manager or [sales@cloudlinux.com](mailto:sales@cloudlinux.com).
 
 
 Use `rsync` to create a local mirror.
