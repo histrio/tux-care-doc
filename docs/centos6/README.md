@@ -28,7 +28,7 @@ To enable the CentOS 6 ELS repository on a server, follow these steps:
 wget https://repo.cloudlinux.com/centos6-els/install-centos6-els-repo.py
 ```
 
-2. Run the installer script with one of the trial keys:
+2. Run the installer script with an activation key:
 
 ```
 python install-centos6-els-repo.py --license-key XXX-XXXXXXXXXXXX
@@ -49,7 +49,9 @@ python install-centos6-els-repo.py --license-key XXX-XXXXXXXXXXXX
 
 4. After this, you will be able to install updates from the repository using a regular `yum upgrade` command.
 
-Currently, the repository contains only a single `centos-els-release` package and intended for demonstration purposes. We are going to populate it with real updates later. You will be able to receive a new real key in CLN that will allow you to receive real updates as soon as we will be ready to populate them.
+```
+yum update sudo 
+```
 
 
 ## Switching to use only ELS mirrors
