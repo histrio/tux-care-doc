@@ -89,6 +89,12 @@ module.exports = {
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
+    search: "Search",
+    algolia: {
+      apiKey: "17e673c12b93fbf7c4a00159b0ae2de0",
+      indexName: "els",
+      appId: "R7FCMJM4P7"
+  },
 
     translationSource: "docs-dev.cln.cloudlinux.com",
     defaultURL: "/centos6/",
