@@ -161,7 +161,8 @@ module.exports = {
             title: "Content",
             collapsable: false,
             children: [
-              "/centos6/"
+              "/centos6/",
+              "/oraclelinux6/"
             ]
           }
         ]
