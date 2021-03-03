@@ -10,7 +10,7 @@ yarn docs:build
 cd docs/.vuepress/dist
 
 # if you are deploying to a custom domain
-echo 'docs.els-centos.cloudlinux.com' > CNAME
+echo 'docs.els.cloudlinux.com' > CNAME
 
 git config --global user.email "ntelepenin@cloudlinux.com"
 git config --global user.name "circle-ci"
