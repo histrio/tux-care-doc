@@ -162,7 +162,8 @@ module.exports = {
             collapsable: false,
             children: [
               "/centos6/",
-              "/oraclelinux6/"
+              "/oraclelinux6/",
+              "/ubuntu16/"
             ]
           }
         ]
