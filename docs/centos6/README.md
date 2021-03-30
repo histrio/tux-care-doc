@@ -119,4 +119,4 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/
 In order to use ELS for CentOS, you need to opent TCP port 443 to the following destinations:
 - cln.cloudlinux.com
 - repo.cloudlinux.com
-- els.rollout.cloudlinux.com
+- els-rollout.cloudlinux.com

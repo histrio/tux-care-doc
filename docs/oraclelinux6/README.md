@@ -66,4 +66,4 @@ In order to use ELS for Oracle Linux, you need to open TCP port 443 to the follo
 
 * cln.cloudlinux.com
 * repo.cloudlinux.com
-* els.rollout.cloudlinux.com
+* els-rollout.cloudlinux.com

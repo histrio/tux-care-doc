@@ -60,4 +60,4 @@ In order to use ELS for Ubuntu, you need to open TCP port 443 to the following d
 
 * cln.cloudlinux.com
 * repo.cloudlinux.com
-* els.rollout.cloudlinux.com
+* els-rollout.cloudlinux.com
