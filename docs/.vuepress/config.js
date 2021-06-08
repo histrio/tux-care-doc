@@ -12,10 +12,10 @@ const slugifyLinks = (s) => {
 // set your global autometa options
 const autoMetaOptions = {
   site: {
-    name   : 'CentOS Extended Support Documentation',
+    name   : 'TuxCare Documentation',
     // twitter: 'cln_docs',
   },
-  canonical_base: 'https://docs.els-centos.cloudlinux.com',
+  canonical_base: 'https://docs.tuxcare.com',
 };
 
 module.exports = {
@@ -73,7 +73,7 @@ module.exports = {
     "/": {
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
-      description: "CentOS Extended Support"
+      description: "TuxCare"
     }
   },
   theme: "cloudlinux",
@@ -97,7 +97,7 @@ module.exports = {
   },
 
     translationSource: "docs-dev.cln.cloudlinux.com",
-    defaultURL: "/centos6/",
+    defaultURL: "/tuxcare/",
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",
@@ -161,9 +161,7 @@ module.exports = {
             title: "Content",
             collapsable: false,
             children: [
-              "/centos6/",
-              "/oraclelinux6/",
-              "/ubuntu16/"
+              "/tuxcare/"
             ]
           }
         ]
