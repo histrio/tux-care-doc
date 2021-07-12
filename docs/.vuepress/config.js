@@ -13,7 +13,7 @@ const slugifyLinks = (s) => {
 const autoMetaOptions = {
   site: {
     name   : 'TuxCare Documentation',
-    // twitter: 'cln_docs',
+    // twitter: 'tuxcare_docs',
   },
   canonical_base: 'https://docs.tuxcare.com',
 };
@@ -104,11 +104,11 @@ module.exports = {
     try_free: "https://cln.cloudlinux.com/console/auth/login",
 
     social: [
-      { url: "https://www.facebook.com/cloudlinux/", logo: "/fb.png" },
-      { url: "https://twitter.com/cloudlinuxos/", logo: "/tw.png" },
-      { url: "https://linkedin.com/company/cloudlinux", logo: "/in.png" },
+      { url: "https://www.facebook.com/TuxCare", logo: "/fb.png" },
+      { url: "https://twitter.com/tux_care", logo: "/tw.png" },
+      { url: "https://www.linkedin.com/showcase/tuxcare", logo: "/in.png" },
       {
-        url: "https://www.youtube.com/channel/UCZ3YMHWnMP7TaxlXVay5-aw",
+        url: "https://www.youtube.com/channel/UCr4GTupdSlC33wfwAGk3jsA/%20Fa",
         logo: "/ytube.png"
       }
     ],
@@ -120,7 +120,7 @@ module.exports = {
           {
             text: "FAQ",
             url:
-              "https://www.cloudlinux.com/extended-lifecycle#faq"
+              "https://tuxcare.com/faq/"
           },
 //          {
 //            text: "Getting started",
@@ -130,7 +130,7 @@ module.exports = {
             text: "Contact support",
             url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
           },
-          { text: "Blog", url: "https://blog.cloudlinux.com/tag/centos-6-els" }
+          { text: "Blog", url: "https://blog.tuxcare.com/" }
         ],
 
         // text for the language dropdown title
@@ -161,7 +161,10 @@ module.exports = {
             title: "Content",
             collapsable: false,
             children: [
-              "/tuxcare/"
+              "/tuxcare/",
+              "/live-patching-services/",
+              "/extended-lifecycle-support/",
+              "/linux-support-services/"
             ]
           }
         ]
