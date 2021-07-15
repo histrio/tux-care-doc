@@ -1,7 +1,7 @@
 {
-  "index_name": "els",
+  "index_name": "tuxcare",
   "start_urls": [
-    "https://docs.els-centos.cloudlinux.com/"
+    "https://docs.tuxcare.com/"
   ],
   "selectors": {
     "lvl0": ".content h1",

@@ -85,14 +85,14 @@ module.exports = {
   },
 
   themeConfig: {
-    repo: "cloudlinux/els-centos-doc",
+    repo: "cloudlinux/tuxcare-doc",
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
     search: "Search",
     algolia: {
       apiKey: "17e673c12b93fbf7c4a00159b0ae2de0",
-      indexName: "els",
+      indexName: "tuxcare",
       appId: "R7FCMJM4P7"
   },
 
