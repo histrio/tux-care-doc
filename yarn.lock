@@ -7555,7 +7555,7 @@ vuepress-plugin-smooth-scroll@^0.0.3:
 
 "vuepress-theme-cloudlinux@https://github.com/cloudlinux/cloudlinux-doc-theme.git":
   version "0.0.1"
-  resolved "https://github.com/cloudlinux/cloudlinux-doc-theme.git#894944d8c9bbb77f5aa89e18b2c61cb886142919"
+  resolved "https://github.com/cloudlinux/cloudlinux-doc-theme.git#61cfe658b3083a5639123b5e89b6237d1357bcff"
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.2"
     "@fortawesome/free-brands-svg-icons" "^5.2.0"

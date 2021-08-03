@@ -4,9 +4,6 @@
 The TuxCare services automate, simplify, and enhance Linux operations, giving organizations more flexibility in managing Linux distro choices and versions, significant maintenance cost reductions, and greatly enhanced security and compliance postures.
 
 
------ need to be edited ---------
-
-
 TuxCare, which is an expansion of the CloudLinux’s KernelCare and Extended Lifecycle Support brands, helps organizations take care of support, maintenance, and security for Enterprise Linux systems.
 
 With [TuxCare Live Patching Services](/live-patching-services/), Linux kernels, libraries, databases, virtualizations and IoT devices receive automated security patches applied with zero downtime.
