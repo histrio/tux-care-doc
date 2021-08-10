@@ -1,7 +1,7 @@
 # TuxCare CLN
 
 
-CLN stands for CloudLinux Network and is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
+CLN is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
 
 ## Introduction
 
