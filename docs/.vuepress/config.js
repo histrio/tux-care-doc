@@ -101,7 +101,7 @@ module.exports = {
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",
-    try_free: "https://cln.cloudlinux.com/console/auth/login",
+    try_free: "https://portal.tuxcare.com",
 
     social: [
       { url: "https://www.facebook.com/TuxCare", logo: "/fb.png" },
@@ -164,7 +164,8 @@ module.exports = {
               "/tuxcare/",
               "/live-patching-services/",
               "/extended-lifecycle-support/",
-              "/linux-support-services/"
+              "/linux-support-services/",
+              "/tuxcare-cln/"
             ]
           }
         ]
