@@ -101,7 +101,7 @@ module.exports = {
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",
-    try_free: "https://portal.tuxcare.com",
+    try_free: "https://cln.cloudlinux.com/console/auth/login",
 
     social: [
       { url: "https://www.facebook.com/TuxCare", logo: "/fb.png" },
