@@ -17,6 +17,12 @@ Automated live patching for Linux kernels with centralized management and common
 * private patch server for gated infrastructures – [ePortal](https://docs.kernelcare.com/kernelcare-enterprise/)
 * out-of-the-box integration with patch management and vulnerability assessment tools
 
+### TuxCare CLN
+
+CLN stands for CloudLinux Network and is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
+
+For the comprehensive TuxCare CLN technical documentation, [visit this page](https://docs.cln.cloudlinux.com/tuxcare/).
+
 ## LibraryCare
 
 Formerly known as KernelCare+, LibraryCare detect and updates shared libraries in-memory without disrupting the applications using them.
