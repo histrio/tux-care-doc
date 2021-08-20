@@ -21,22 +21,75 @@ Automated live patching for Linux kernels with centralized management and common
 
 Formerly known as KernelCare+, LibraryCare detect and updates shared libraries in-memory without disrupting the applications using them.
 
-### How LibraryCare works
+### Supported operating systems
 
-1. **The patch is created by the KernelCare team**.
+LibraryCare patching is now available for the following operating systems:
 
-    A library’s source code–both original and patched–are translated into assembly language. These files are compared, and the new patched code is put in a new section of the same ELF file. After the code is compiled and linked, the patch is extracted from the resulting binaries. The patch files are extracted from the ELF sections.
-2. **The patch is uploaded to the patch server**.
+* CentOS/RHEL/CloudLinux OS 7
+* CloudLinux OS 8
+* AlmaLinux 8
+* Oracle Linux 7
+* Oracle Linux 8
+* Debian 9/10
+* Ubuntu 16.04/18.04
+* Proxmox VE 6
+* Scientific Linux
 
-    The binary files are treated as a single patch, which is then uploaded to a dedicated KernelCare patch server. The patch server then distributes the patch to customers’ servers.
-3. **The patch is downloaded to the local agent**.
+### Installation and upgrade
 
-    An agent program on each local server, `lcarectl`, “talks to” the patch server, which looks for known libraries on the local server. The agent program then downloads the patch needed for each library present on the local server.
-4. **The patch is applied to the local server**.
+Userspace processes patching feature is available in the KernelCare package.
 
-    Using Linux APIs, memory near a library is allocated, and the patch is copied into it. After ensuring that no threads are executing the old library code, the agent program reroutes calls from old code to the new patched versions via unconditional jumps.
+### Usage
 
-For the LibraryCare technical documentation, [visit this page](https://docs.kernelcare.com/kernelcare-plus/).
+To apply the available patches to all userspace processes, run the following command:
+
+```
+$ kcarectl --lib-update
+```
+
+To gather information about what processes were patched, run the following command:
+
+```
+$ kcarectl --lib-info
+```
+
+To gather information about applyed patches, run the following command:
+
+```
+$ kcarectl --lib-patch-info
+```
+
+To unpatch all involved processes, run the following command:
+
+```
+$ kcarectl --lib-unload
+```
+
+#### Blacklisting
+
+If you need to avoid patching of some particular process it could be done by blacklist defining. Default one is located in the `/var/lib/libcare/blacklist` and contains a package-provided list. You can overwrite those values by creating the `/var/cache/kcare/userspace/blacklist` file with the higher priority.
+
+#### Auto update
+
+Userspace patching cron job is disabled by default. To enable it, run the following command:
+
+```
+libcare-cron init
+```
+
+### Troubleshooting
+
+#### Auditd logs
+
+The LibraryCare tools heavily use a `ptrace` syscall and, in case of `auditd` trace it's calls, there will be a lot of records in a log. There is a rule that provided by kernelcare package and located here: `/etc/audit/rules.d/kernelcare.rules`. It will exclue kernelcare processes from audit.
+
+**Note**: no such rule is provided for `el6` due to old `autditd` restrictions. There is a command that will add such rule in runtime:
+
+```
+auditctl -l | grep kcare | cut -d' ' -f2- | xargs -t -L1 -r auditctl -d && pgrep libcare-server | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcarever | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcare
+```
+
+It removes all currently enabled KernelCare rules and adds a new one by LibraryCare's process ID.
 
 
 ## KernelCare for IOT
