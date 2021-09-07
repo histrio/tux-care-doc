@@ -5,7 +5,7 @@ As part of Live Patching Services, TuxCare provides the following:
 * KernelCare Enterprise
 * LibraryCare
 * KernelCare for IOT
-* QEMUCare (Available in Q3 2021)
+* QEMUCare
 * DatabaseCare (Available in Q3 2021)
 
 
@@ -109,10 +109,6 @@ For more information about KernelCare for IOT, [visit this page](https://tuxcare
 
 ## QEMUCare
 
-:::warning Note
-Available in Q3 2021
-:::
-
 QEMUCare – virtualization patching for cloud providers, VPS hosters, or any other company with QEMU based virtualization systems. It keeps infrastructure patched without disrupting virtual tenants’ systems.
 
 ### How QEMUCare works
@@ -120,9 +116,61 @@ QEMUCare – virtualization patching for cloud providers, VPS hosters, or any ot
 * An agent is installed on each virtualization host which installs patches directly from the QEMUCare repository.
 * In an ePortal environment, your Virtualization Hosts communicate with the QEMUCare ePortal server that acts as an intermediary.
 
-You can [sign up for early access here](https://tuxcare.com/live-patching-services/qemucare/#features).
+### QEMU PatchSet Deployment
 
-For more information about QEMUCare, [visit this page](https://tuxcare.com/live-patching-services/qemucare/).
+Starting from version 1.25, ePortal supports the QEMU patchset management. It
+is accessible from the `Patches / QEMUcare` navigation item. QEMU patches
+use the same Patch Source credentials, and you don't need to perform additional
+configuration.
+
+![](/images/eportal-qemu-feed.png)
+
+User interface for the QEMU patch management is the same as for KernelCare patches, and you
+can refer the [PatchSet Deployment](https://docs.kernelcare.com/kernelcare-enterprise/#patchset-deployment) documentation.
+
+#### CLI to install the latest patchsets
+
+To update the default feed, run the following command:
+
+```
+kc.eportal qemu update
+```
+
+To update the `test` feed, run the following command:
+
+```
+kc.eportal qemu update --feed test
+```
+
+To update all auto-feeds, run the following command:
+
+```
+kc.eportal qemu auto-update
+```
+
+#### CLI to deploy patchset from archive
+
+```
+~$ kc.eportal qemu deploy --help
+usage: kc.eportal qemu deploy [-h] [--feed FEED] [--disabled] archive
+
+positional arguments:
+  archive      path to archive
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --feed FEED  feed to deploy archive to
+  --disabled   do not enable patchset after deploy
+```
+
+For example:
+
+```
+kc.eportal qemu deploy --feed test /tmp/U20210818_01-qemu.tar.bz2
+```
+
+This command will deploy and enable the `U20210818_01-qemu` patchset in to the `test` feed.
+
 
 ## DataBaseCare
 
