@@ -15,7 +15,7 @@ const autoMetaOptions = {
     name   : 'TuxCare Documentation',
     // twitter: 'tuxcare_docs',
   },
-  canonical_base: 'https://docs.tuxcare.com',
+  canonical_base: 'https://tuxcare.com/',
 };
 
 module.exports = {
