@@ -174,9 +174,7 @@ This command will deploy and enable the `U20210818_01-qemu` patchset in to the `
 
 ## DataBaseCare
 
-:::warning Note
-Available in Q3 2021
-:::
+DataBaseCare is available for Beta testing! Sign up [here](https://tuxcare.com/live-patching-services/databasecare/).
 
 DataBaseCare provides live patching for MySQL, MariaDB, PostgreSQL and other enterprise databases. It keeps your applications running while your database backend is being updated, enhancing security, availability and compliance.
 
