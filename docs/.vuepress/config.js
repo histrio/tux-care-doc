@@ -163,6 +163,7 @@ module.exports = {
             children: [
               "/tuxcare/",
               "/live-patching-services/",
+              "/eportal/",
               "/extended-lifecycle-support/",
               "/linux-support-services/",
               "/tuxcare-cln/"

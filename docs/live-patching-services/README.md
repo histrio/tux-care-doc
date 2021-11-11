@@ -11,11 +11,428 @@ As part of Live Patching Services, TuxCare provides the following:
 
 ## KernelCare Enterprise
 
-Automated live patching for Linux kernels with centralized management and common automation and vulnerability management tools integration.
+### Installation
 
-* rebootless Linux kernel patching and custom patching. For a complete list of supported kernels and patches, [visit this page](https://patches.kernelcare.com/)
-* private patch server for gated infrastructures – [ePortal](https://docs.kernelcare.com/kernelcare-enterprise/)
-* out-of-the-box integration with patch management and vulnerability assessment tools
+KernelCare Enterprise is compatible with 64-bit versions of AlmaLinux/CloudLinuxOS/CentOS/RHEL 6,7 and 8, Oracle Linux 6 and 7, Amazon Linux 1 and 2, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8,9 and 10, Proxmox VE 5 and 6, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04 and 16.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
+
+To install KernelCare Enterprise, run:
+
+```
+curl -s -L https://kernelcare.com/installer | bash
+```
+
+or:
+
+```
+wget -qq -O - https://kernelcare.com/installer | bash
+```
+
+If you are using IP-based license, nothing else required to be done.
+
+If you are using key-based license, run:
+
+```
+$ /usr/bin/kcarectl --register KEY
+```
+
+`KEY` is the registration key code string provided when you sign up for purchase or trial of the product.
+
+If you are experiencing **_Key limit reached_** error after the end of the trial period you should first, unregister the server by running:
+
+```
+kcarectl --unregister
+```
+
+To check if patches applied, run:
+
+```
+$ /usr/bin/kcarectl --info
+```
+
+The software will automatically check for new patches every 4 hours.
+
+If you would like to run update manually:
+
+```
+$ /usr/bin/kcarectl --update
+```
+
+To check current kernel compatibility with KernelCare, use the following [script](https://raw.githubusercontent.com/iseletsk/kernelchecker/master/py/kc-compat.py) by running:
+
+```
+curl -s -L https://kernelcare.com/checker | python
+```
+
+or:
+
+```
+wget -qq -O - https://kernelcare.com/checker | python
+```
+
+### Update 
+
+To update the agent package to the latest version use: 
+
+* For rpm-based distributives (CentOS, RedHat, etc):
+
+```
+yum install -y kernelcare
+```
+
+* For apt-based distributives (Debian, Ubuntu, etc):
+
+```
+apt-get install kernelcare
+```
+
+### Uninstalling
+
+
+To uninstall KernelCare Enterprise, do the the following:
+
+_For CloudLinux, CentOS, RHEL, Virtuozzo, OpenVZ:_
+
+```
+$ yum remove kernelcare
+```
+
+_For Ubuntu, Debian, Proxmox VE:_
+
+```
+apt-get remove kernelcare
+```
+```
+dpkg --remove kernelcare
+```
+
+This will also unlink the system from its activation key (provided there is network connectivity to the CLN Portal). However, you'll need to remove the license from the CLN Portal manually if you don't plan to use the service anymore.
+
+
+### Switching from Ksplice
+
+To switch from Ksplice to KernelCare Enterprise, use the following script that uninstalls Ksplice and installs KernelCare Enterprise instead.
+
+It will automatically detect and abort if the system is not 64-bit (as KernelCare Enterprise doesn't support it).
+
+It will also detects when Ksplice module cannot be uninstalled and retries multiple times.
+
+Download the script here: [https://patches.kernelcare.com/ksplice2kcare](https://patches.kernelcare.com/ksplice2kcare).
+
+Run the command:
+
+```
+$ bash ksplice2kcare $KERNELCARE_KEY$
+```
+
+The key can be created/retrieved in KernelCare Enterprise Keys section of CLN.
+
+If you want to use IP based licenses, run:
+
+```
+$ bash ksplice2kcare IP
+```
+
+You have to add IP license for that server, and it is just two letters: IP, not the actual IP.
+
+By default the script will attempt 3 times to uninstall Ksplice, waiting 60 seconds in between. You can run it using `nohup` if you don't want to wait.
+
+You can change that by editing the script and changing `RETRY` and `SLEEP` values.
+
+The script will exit with exit code `0` and message _Done_ on success. Otherwise, it will produce exit code `-1`.
+
+Complete log file can be found at `/var/log/ksplice2kcare.log`.
+
+#### Canonical Livepatch
+
+KernelCare Enterprise is not compatible with Canonical Livepatch and should not be used on the same system.
+
+### Basic management
+
+
+To disable automatic updates, edit the file `/etc/sysconfig/kcare/kcare.conf`
+
+```
+AUTO_UPDATE=False 
+```
+
+To check the updated ('effective') version, run:
+
+```
+$ /usr/bin/kcarectl --uname 
+```
+
+We provide convenience script `/usr/bin/kcare-uname` that has same syntax as `uname`.
+
+To see applied patches, run:
+
+```
+$ /usr/bin/kcarectl --patch-info 
+```
+
+
+### Command line tools
+
+
+`/usr/bin/kcarectl` - Manage KernelCare Enterprise patches for your kernel.
+
+`/usr/bin/kcare-uname` - Print certain system information.
+
+#### kcarectl
+
+| | |
+|-|-|
+|`-i, --info` | Display information about patches installed by KernelCare Enterprise.|
+|`-u, --update ` | Download latest patches, and apply them to current kernel.|
+|`--smart-update  [since 1.6] ` | The same as --update, but uses [UPDATE_POLICY](/live-patching-services/#config-options) to decide where to get patches.|
+|`--unload` | Unload patches.|
+|`--auto-update` | Check if update is needed and update.|
+|`--patch-info` | Lists applied patches.|
+|`--force  [since 2.3] ` | When used with update, forces applying the patch even if unable to freeze some threads.|
+|`--uname` | Prints safe kernel version.|
+|`--license-info` | Output current license info.|
+|`--register KEY` | Register using KernelCare Enterprise Key.|
+|`--register-autoretry [since 2.5]` | If registration fails retries registration indefinitely.|
+|`--unregister` | Unregister from KernelCare Enterprise for Key based servers.|
+|`--test` | Try test builds instead of production builds (deprecated, use --prefix=test instead).|
+|`--prefix` | Patch source prefix, used to test different builds, by downloading builds from a different location, based on prefix (v2.2+)|
+|`--version` | Print KernelCare Enterprise version.|
+|`--import-key PATH` | Import gpg key.|
+|`--set-monitoring-key` | Set monitoring key for IP based licenses. 16 to 32 characters, alphanumeric only [version 2.1+]|
+|`--freezer  [since 2.3] ` | none: don't freeze any threads; full: freeze all threads; smart: freezes only threads that need to be frozen for patching. If option is not selected, best freezer method is chosen automatically.|
+|`--check [since 2.4-1]` | Check if new patchset is available, without updating. Exit code 0 means there is a new kernel. 1 when there is no new kernel.|
+|`--doctor [since 2.6]` | Send a report to the TuxCare support staff for diagnostics.|
+|`--set-patch-type extra ` | To enable extra patches.|
+|`--set-patch-type free` | To enable free patches.|
+|`--set-sticky-patch SET_STICKY_PATCH` | Set patch to stick to date in format DDMMYY or retrieve it from KEY if set to KEY (no support for ePortal). Empty to unstick. More info at [Sticky Patches](/live-patching-services/#sticky-patches).|
+|`--tag COMMAND` | Adds an extra _Tag_ field for a server. COMMAND is a user-defined parameter.|
+
+#### kcare-uname
+
+
+Print certain system information.  With no OPTION, same as `-s`.
+
+| | |
+|-|-|
+|`-a, --all` | print all information in the following order, except omit `-p` and `-i` if unknown|
+|`-s, --kernel-name` | print the kernel name|
+|`-n, --nodename` | print the network node hostname|
+|`-r, --kernel-release` | print the kernel release|
+|`-v, --kernel-version` | print the kernel version|
+|`-m, --machine` | print the machine hardware name|
+|`-p, --processor` | print the processor type or `unknown`|
+|`-i, --hardware-platform` | print the hardware platform or `unknown`|
+|`-o, --operating-system` | print the operating system|
+|`--help` | display this help and exit|
+|`--version` | output version information and exit|
+
+
+#### kernelcare doctor
+
+This tool collects essential information about the KernelCare environment and sends it to the support team.
+
+```
+# kcarectl --doctor
+Generating report...
+Uploading...
+Key: FRWf74Zw11111111.83991334-1111-1111-1111-681ddd653e5f
+Please, provide above mentioned key to KernelCare Support Team
+
+```
+
+The command generates a report and prints out the ID which could be linked to a support ticket.
+
+:::tip Note
+If there was some connection problem during report uploading, the report will be stored locally as `/root/cl-report`. This file should be sent to the support team manually.
+:::
+
+### Config options
+
+
+A `kcarectl` behavior can be configured using `/etc/sysconfig/kcare/kcare.conf`
+
+| | |
+|-|-|
+|`AUTO_UPDATE=YES|NO` | `YES` - enable auto-update; `NO` - disable auto-update.|
+|`chkconfig kcare off` | Disable auto-update after restart.|
+|`PATCH_METHOD=normal|nofreeze|smart` | `Normal` - (default) use freezer;<br>`Nofreeze` - don't use freezer to freeze processes;<br> `Smart` - smart freezer freezes only threads that need to be frozen for patching [kernelcare 2.3+].|
+|`PATCH_SERVER` | Server to use to download patches.|
+|`REGISTRATION_URL` | Licensing server.|
+|`PREFIX=prefix` | Patch source prefix, used to test different builds, by downloading builds from a different location, based on prefix (v2.2+)|
+|`UPDATE_POLICY=REMOTE|LOCAL|LOCAL_FIRST [since 1.6] ` | Depending on the policy, on server startup, use:<br>`REMOTE` - (default) patches from patch server.<br>`LOCAL` - only locally cached patches, if none cached (caching is done automatically) - do nothing.<br>`LOCAL_FIRST` - see if locally cached patches exist, and load them. If not, try getting them from remote server.|
+|`IGNORE_UNKNOWN_KERNEL=True|False` `[since 2.5-4]` | Don't provide notification if unknown kernel on auto-update.|
+|`LOAD_KCARE_SYSCTL [since 2.7-1]` | Controls if `/etc/sysconfig/kcare/sysctl.conf` will be loaded on patchset load. True by default.|
+|`--set-patch-type extra` | To enable extra patches.|
+|`--set-patch-type free` | To enable free patches.|
+|`STICKY_PATCH=KEY` | Retrieve sticky patch from `KEY` (see CLN, Key Edit); not supported for IP based servers or ePortal.|
+|`STICKY_PATCH=DDMMYY` | Stick patch to a particular date. More info at [Sticky Patches](/live-patching-services/#sticky-patches).|
+|`REPORT_FQDN=True|False` | Force using Fully Qualified Domain as a hostname. False by default.|
+|`FORCE_GID=N`|Use this group ID for symlink protection patch. By default, it's 48 (default Apache user GID) or 99 (`nobody` user)|
+
+
+### Disabling some patches
+
+Some patches might affect the work of the system, and we created a way to disable them.
+
+This is done via the `sysctl` command.
+
+When new patchset loads, KernelCare Enterprise sysctl options get reset. To prevent that we added a file:
+
+`/etc/sysconfig/kcare/sysctl.conf`
+
+Options in this file will be loaded automatically on new patchset load.
+
+To disable loading this options, specify:
+
+`LOAD_KCARE_SYSCTL=0` in `/etc/sysconfig/kcare/kcare.conf`
+
+To disable the patch, set the corresponding kcare option to `1`.
+
+Patches that can be disabled:
+
+| | |
+|-|-|
+|Patch |  _sysctl_ option|
+|CVE-2015-5157 | kcare_modify_ldt|
+
+
+# Extra patchset
+
+::: tip Note
+KernelCare Enterprise 2.12-5 or higher
+:::
+
+KernelCare Enterprise Extra patchset includes all the security fixes from KernelCare Enterprise for AlmaLinux, CentOS 6, CentOS 7, and CentOS 8 as well as symlink protection and IPSet bugfix for CentOS 6.
+
+To enable extra patches and apply patch, run:
+
+```
+kcarectl --set-patch-type extra --update
+```
+
+To enable extra patches without update, run:
+
+```
+kcarectl --set-patch-type extra
+```
+
+The ‘extra’ patch will be applied on the next automatic update.
+
+To see details, run:
+
+```
+kcarectl --patch-info
+```
+
+You should see something similar to:
+
+```
+OS: centos6
+kernel: kernel-2.6.32-696.6.3.el6
+time: 2017-07-31 22:46:22
+uname: 2.6.32-696.6.3.el6
+ 
+kpatch-name: 2.6.32/symlink-protection.patch
+kpatch-description: symlink protection // If you see this patch, it mean that you can enable symlink protection.
+kpatch-kernel: kernel-2.6.32-279.2.1.el6
+kpatch-cve: N/A
+kpatch-cvss: N/A
+kpatch-cve-url: N/A
+kpatch-patch-url: https://gerrit.cloudlinux.com/#/c/16508/
+ 
+kpatch-name: 2.6.32/symlink-protection.kpatch-1.patch
+kpatch-description: symlink protection (kpatch adaptation)
+kpatch-kernel: kernel-2.6.32-279.2.1.el6
+kpatch-cve: N/A
+kpatch-cvss: N/A
+kpatch-cve-url: N/A
+kpatch-patch-url: https://gerrit.cloudlinux.com/#/c/16508/
+ 
+kpatch-name: 2.6.32/ipset-fix-list-shrinking.patch
+kpatch-description: fix ipset list shrinking for no reason
+kpatch-kernel: N/A
+kpatch-cve: N/A
+kpatch-cvss: N/A
+kpatch-cve-url: N/A
+kpatch-patch-url: https://bugs.centos.org/view.php?id=13499
+```
+To enable Symlink Owner Match Protection, add the following line:
+
+`fs.enforce_symlinksifowner=1`
+
+to `/etc/sysconfig/kcare/sysctl.conf`.
+
+And run:
+
+```
+sysctl -w fs.enforce_symlinksifowner=1
+```
+
+
+### Sticky patches
+
+:::tip Note
+This functionality is not available for ePortal customers. If you are using ePortal, please use [Feeds](/eportal/#feed-management) instead.
+:::
+
+Sometimes you don't want to use the latest patches, but you'd like to control which patches are get installed instead. For example, you have tested the patch released on 25th of May 2018 and want to use that patch across all servers.
+
+You can do it by setting `STICKY_PATCH=250518` (ddmmyy format) in `/etc/sysconfig/kcare/kcare.conf`
+This guarantees that when `kcarectl --update` or `kcarectl --auto-update` is called, you will get patches from that date and not the newest patches.
+
+With `STICKY_PATCH` you can go back as far as 60 days.
+
+Alternatively, you can set `STICKY_PATCH=KEY`
+This way you can control the date from which patches will be applied using KernelCare keys in CLN.
+On update, the actual date will be retrieved from CLN (from Key settings) for the key used to register a particular server (not supported for IP based servers).
+
+This is very useful if you want to test patches in QA first and later roll them out to production without doing any changes on the systems.
+
+Here is how you can do that:
+
+* Set `STICKY_PATCH=KEY` on all your servers.
+* Register QA servers with one KEY, and Production servers with ANOTHER key.
+* Then, stop new updates for Production servers. In CLN set `Sticky Tag` to `yesterday`. You can do it by editing KEY in CLN in DDMMYY format.
+* Now, for example, let's use patches as of 03052018 (DDMMYY format). Set them for your QA server key. On the next auto-update, your QA servers will get those patches (auto-updates are typically every 4 hours).
+
+Once you are happy with this patches, set the same Sticky Tag for Production servers key. In 4 hours your production servers should be updated to the same patches that QA servers were.
+
+:::tip Note
+You can choose any date within the last 60 days. You cannot choose today's date or date in the future.
+:::
+
+
+#### How to find a proper sticky patch name
+
+Let's assume that you have some kernel patch that you want to "stick" with. All you need is to find a proper label for that patch.
+
+![sticky-proper-label](/images/sticky-proper-label.png)
+
+As you can see, the patch was released at 2020-09-16. And if apply label's date format, it becomes `16092020` that will be the sticky patch value.
+
+
+### Scanner Interface
+
+#### Issue description
+
+Commonly used security scanners can still see CVEs even if they are patched by KernelCare Enterprise. It turns out that all their decisions about CVE are based on:
+
+* currently installed (or not) kernel packages
+* uname information
+
+#### How to use
+
+It’s rather simple. New scan results after installing a package and applying a patchset should not show any kernel CVEs that are handled by KernelCare Enterprise.
+
+For example, Nessus for an old kernel shows a bunch of detected CVEs
+
+![](/images/scanner-manipulation-before.png)
+
+After patches were applied, there are no kernel-related CVEs
+
+![](/images/scanner-manipulation-after.png)
+
+
+
 
 ## LibraryCare
 
