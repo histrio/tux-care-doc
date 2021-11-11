@@ -36,11 +36,11 @@ module.exports = {
       after: '</div>',
     }],
 //    ['disqus', { shortname: 'docscloudlinuxcom' }],
-   // ['@vuepress/google-analytics',
-  //    {
-  //      'ga': 'UA-12711721-12'
-  //    }
-  //  ],
+    ['@vuepress/google-analytics',
+      {
+        'ga': 'G-RSVSWSBDSK'
+      }
+    ],
     [ 'autometa', autoMetaOptions ]
   ],
   configureWebpack: {
