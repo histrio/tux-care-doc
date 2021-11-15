@@ -31,6 +31,8 @@ and the following number of connected servers:
   * 1 GB RAM
 
 * 75k of connected machines is the maximum for the following requirements:
+
+
   * Core i5
   * 1 CPU
   * 4 GB RAM
