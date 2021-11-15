@@ -15,7 +15,7 @@ const autoMetaOptions = {
     name   : 'TuxCare Documentation',
     // twitter: 'tuxcare_docs',
   },
-  canonical_base: 'https://tuxcare.com/',
+  canonical_base: '/',
 };
 
 module.exports = {
@@ -36,11 +36,11 @@ module.exports = {
       after: '</div>',
     }],
 //    ['disqus', { shortname: 'docscloudlinuxcom' }],
-    ['@vuepress/google-analytics',
-      {
-        'ga': 'G-RSVSWSBDSK'
-      }
-    ],
+    //['@vuepress/google-analytics',
+      //{
+        //'ga': 'G-RSVSWSBDSK'
+      //}
+    //],
     [ 'autometa', autoMetaOptions ]
   ],
   configureWebpack: {
@@ -65,6 +65,21 @@ module.exports = {
         rel: "icon",
         href: "/favicon.ico"
       }
+    ],
+    [
+      "script", 
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-RSVSWSBDSK",
+        async: "async"
+      }
+    ],
+    [
+      "script", 
+      {}, 
+      "window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'G-RSVSWSBDSK');"
     ]
   ],
   locales: {
