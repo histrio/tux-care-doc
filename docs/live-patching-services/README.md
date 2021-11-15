@@ -600,6 +600,4 @@ DataBaseCare provides live patching for MySQL, MariaDB, PostgreSQL and other ent
 * An agent is installed on Database Servers which installs patches directly from our repository. 
 * This agent is used to distribute and apply patches across all TuxCare products, so if you use more than one, you will still only have one agent running.
 
-[Contact TuxCare team for a free trial](https://tuxcare.com/live-patching-services/databasecare/#DBCare-contact-form).
-
 For more information about DataBaseCare, [visit this page](https://tuxcare.com/live-patching-services/databasecare/).
