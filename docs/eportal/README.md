@@ -3,7 +3,7 @@
 KernelCare Enterprise includes a web management console (ePortal)
 for protected environments.
 
-ePortal software can help protect servers located behind the/
+ePortal software can help protect servers located behind the
 firewall (i.e. with no internet access) and can be installed both
 on-premises and in the cloud.
 
