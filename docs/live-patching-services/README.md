@@ -192,8 +192,8 @@ $ /usr/bin/kcarectl --patch-info
 |`--license-info` | Output current license info.|
 |`--register KEY` | Register using KernelCare Enterprise Key.|
 |`--register-autoretry [since 2.5]` | If registration fails retries registration indefinitely.|
-|`--unregister` | Unregister from KernelCare Enterprise for Key based servers.|\
-|`--userspace-update [PATCHES]` | Download latest patches and apply them to the corresponding userspace processes. Сan be set so that only certain types of patches are applied. |
+|`--unregister` | Unregister from KernelCare Enterprise for Key based servers.|
+|`--userspace-update [PATCHES]` | Download latest patches and apply them to the corresponding userspace processes. Сan be set so that only certain types of patches are applied.|
 |`--test` | Try test builds instead of production builds (deprecated, use --prefix=test instead).|
 |`--prefix` | Patch source prefix, used to test different builds, by downloading builds from a different location, based on prefix (v2.2+)|
 |`--version` | Print KernelCare Enterprise version.|
