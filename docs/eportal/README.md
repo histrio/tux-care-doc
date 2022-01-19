@@ -621,13 +621,12 @@ To view the list of all servers IDs that are not connected to any key, use the <
 Also you can use CLI to see pairs of key/number of servers run:
 
 ```
-> kc.eportal --list-servers
+$ kc.eportal --list-servers
+Count | Key
+----- + --------------------------------
+    0 | 2shcolu7Y1x6885Q
+    2 | 6J89aS44j6OmTr05
 ```
-| | |
-|-|-|
-|Count | Key|
-|`0` | `2shcolu7Y1x6885Q`|
-|`2` | `6J89aS44j6OmTr05`|
 
 ### Show extended check-in statistics in admin UI
 
@@ -901,6 +900,102 @@ $ curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 $ /usr/bin/kcarectl --register key_from_your_eportal
 ```
 
+## High availability
+
+Starting from version 1.28, ePortal supports application level replication.
+It allows to propagate changes in both ways – from a leader to followers and from followers to the leader.
+
+Configuration settings are located in the `/usr/share/kcare-eportal/config/local.py`
+
+* `NODE_URL`: URL to the self instance, needed for auto-discovery purposes
+* `LEADER_URL`: URL to the instance from where to fetch changes
+* `REPLICATION_SHARED_KEY`: authorization key to access the replication data
+
+A leader node discovers followers automatically and after that fetches the changes.
+
+You can use any convenient way to balance agent requests to the ePortal cluster. For example, you can add multiple IP addresses to the DNS name or use an HTTP balancer.
+
+
+### Basic setup
+
+1. Prepare two fresh ePortal instances and assign DNS name to IPs. For example:
+
+    * eportal1.corp -> 192.168.1.11
+    * eportal2.corp -> 192.168.1.12
+    * eportal.corp -> 192.168.1.11, 192.168.1.12
+
+2. Let's choose `eportal1` as a leader and `eportal2` as a follower. `eportal.corp` is a cluster hostname to use on servers with KernelCare agent.
+
+ :::danger Warning!
+ Please do not use a cluster hostname to perform operations with the ePortal admin UI.
+ :::
+
+3. On the `eportal1` define `NODE_URL` and `REPLICATION_SHARED_KEY` in the configuration file:
+
+ ```
+ NODE_URL = 'http://eportal1.corp'
+ REPLICATION_SHARED_KEY = 'secret'
+ ```
+
+4. On the `eportal2` define `NODE_URL`, `LEADER_URL` and `REPLICATION_SHARED_KEY`:
+
+ ```
+ NODE_URL = 'http://eportal2.corp'
+ LEADER_URL = 'http://eportal1.corp'
+ REPLICATION_SHARED_KEY = 'secret'
+ ```
+
+5. That's it. After ePortal restart on both hosts, changes on the `eportal1` will be
+replicated to the `eportal2` instance and vice versa.
+
+:::tip Note
+You can change the KernelCare agent settings to point to a cluster hostname via:
+```
+curl -s http://eportal.corp/set-patch-server | bash
+```
+:::
+
+### Adding node to an existing ePortal instance
+
+If you already have a working ePortal instance, you can setup a second node, define `NODE_URL` and `LEADER_URL` on both instances and trigger full sync
+on the follower instance:
+
+```
+[root@eportal2.corp]$ kc.eportal replication --full-sync
+```
+
+
+### Other replication setups
+
+For one leader and two follower setup:
+
+```
+     +-> leader <-+
+     |            |
+     |            |
+follower1       follower2
+```
+
+there is a chance to lost a `leader` node and `follower1`/`follower2` will not communicate with each other. To mitigate this issue, you can deploy a ring
+replication:
+
+```
+  +-> node1 --+
+  |           |
+  |           v
+node2 <---- node3
+```
+
+where each instance follows another node.
+
+
+### Caveats
+
+1. Replication uses HTTP transport. If you deploy ePortal without SSL termination, the replication data will be transferred as-is unencrypted.
+
+2. For a round-robin balancer setups (DNS or HTTP balancer round-robin) KernelCare agent can run onto replication lag in case of sequential registration and following update. You can introduce 10s timeout or repeat in your configuration management logic to mitigate the issue.
+
+3. Replication log is kept for 7 days. If a node loses connectivity for more than 7 days it skips some changes.
 
 ## Deploying KernelCare Enterprise
 
