@@ -374,19 +374,15 @@ attribute.
 
 ### Script to deploy release from a file
 
-If you have no opportunity to connect your ePortal server to the KernelCare patch server to
-be able to download patchsets directly from it, you can do it manually.
+If you have no opportunity to connect your ePortal server to the KernelCare patch server to download patchsets directly from it, you can do it manually.
 
-If you have some location with already downloaded patchsets, and want to find out which is 
-the latest patchset file which needs to be moved, you can compare lists of archives that you have 
-with content of `/usr/share/kcare-eportal/arch/` folder.
+If you have a location with already downloaded patchsets, and would like to identify the latest patchset file to be moved, you can compare the lists of archives you have with the content of the `/usr/share/kcare-eportal/arch/` folder.
 
-After that you shoud upload the selected patchsets to your ePortal server and run `kc.eportal --deploy` 
-for each of them.
+After that, upload the selected patchsets to your ePortal server and run the `kc.eportal --deploy` command for each of them.
 
 #### Example
 
-Lets find out the difference between out test and prod ePortal intancies
+Lets find out the difference between a test and a production ePortal intancies:
 
 ```bash
 $ comm -23 \
@@ -394,7 +390,7 @@ $ comm -23 \
     <(ssh eportal-prod "ls /usr/share/kcare-eportal/arch/K*.tar.bz2" | sort -h) | tee patchsets.diff
 ```
 
-Upload patchests to the prod:
+Upload patchests to the production:
 
 ```bash
 $ cat patchsets.diff | xargs -Phav {} rsync -iv eportal-test:{} /tmp/
@@ -409,9 +405,9 @@ $ ssh eportal-prod 'ls /tmp/K*.tar.bz2 | sort -h | xargs -n1 kc.eportal kcare de
 ...
 ```
 
-Please note, that procedure above should be done for all other types of patchsets 
-(like libcare and qemu) *separately*. Use corresponding file prefixes and commands 
-like `kc.eportal libcare deploy`
+:::danger Note
+Please note that procedure above should be done for all other types of patchsets (like libcare and qemu) *separately*. Use corresponding file prefixes and commands like `kc.eportal libcare deploy`.
+:::
 
 ### Clean obsolete releases
 
