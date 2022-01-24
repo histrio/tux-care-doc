@@ -11,6 +11,26 @@ As part of Live Patching Services, TuxCare provides the following:
 
 ## KernelCare Enterprise
 
+## Introduction
+KernelCare Enterprise is a live kernel patching service that provides security patches and bugfixes for a range of popular Linux kernels that can be installed without rebooting the system
+
+### Benefits
+Today, system administrators have to reboot a server to apply the latest kernel updates. These updates are necessary to prevent security issues. Due to downtime associated with reboots, however, such updates are often delayed, pushed into the darkest hours of the night. It is common for server owners to not update their systems for months or even years and to run vulnerable systems to avoid downtime. Managed service providers face the problem of having to schedule downtime and then updating and rebooting thousands of servers in a short period of time, straining resources. KernelCare solves this update and reboot issue by providing live kernel patching without the need for a reboot
+
+### Key Features
+* Rebootless Linux Kernel Patching & Custom Patching
+* Works On-prem & in the cloud
+* Private patch server for gated infrastructures - ePortal
+* Out-of-the-box integration with patch management & vulnerability assessment tools
+
+## Activation
+
+### Getting trial license
+
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+
+If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
+
 ### Installation
 
 KernelCare Enterprise is compatible with 64-bit versions of AlmaLinux/CloudLinuxOS/CentOS/RHEL 6,7 and 8, Oracle Linux 6 and 7, Amazon Linux 1 and 2, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8,9 and 10, Proxmox VE 5 and 6, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04 and 16.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
