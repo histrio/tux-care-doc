@@ -11,7 +11,7 @@ As part of Live Patching Services, TuxCare provides the following:
 
 ## KernelCare Enterprise
 
-## Introduction
+### Introduction
 KernelCare Enterprise is a live kernel patching service that provides security patches and bugfixes for a range of popular Linux kernels that can be installed without rebooting the system
 
 ### Benefits
