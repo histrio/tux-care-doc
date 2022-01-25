@@ -23,8 +23,6 @@ Today, system administrators have to reboot a server to apply the latest kernel 
 * Private patch server for gated infrastructures - ePortal
 * Out-of-the-box integration with patch management & vulnerability assessment tools
 
-## Activation
-
 ### Getting trial license
 
 You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
