@@ -459,8 +459,8 @@ After patches were applied, there are no kernel-related CVEs
 ### UEFI Secure Boot Support
 
 
-:::tip Note
-The feature is in early stage of adopting and not all distributions could be supported.
+:::Note
+This feature is an early stage of adoption. Not all the distribution will be able to support. 
 :::
 
 
