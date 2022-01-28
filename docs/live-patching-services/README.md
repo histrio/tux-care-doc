@@ -534,6 +534,25 @@ To get more information about signing kernel modules for secure boot, see
 
 Formerly known as KernelCare+, LibraryCare detect and updates shared libraries in-memory without disrupting the applications using them.
 
+### Introduction
+LibraryCare is a patching tool for shared libraries and detecting library-related vulnerabilities. Its patches the library files in memory without rebooting.
+
+### Benefits
+Today in a lot of organizations, it's very challenging to get approval for maintenance windows that are required to reboot servers and restart an application. There are multiple applications running on a single server today shared the Glibc and OpenSSL libraries. 
+
+Even if they’re patched manually, without a reboot, shared libraries may contain vulnerabilities. When libraries are updated on disk, old unpatched files can persist in a server’s memory. What’s more, vulnerability scanners don’t detect these old unpatched library files in memory. With LibraryCare the local server libraries are fully protected against all knows attackers and vulnerability
+
+### Key Features
+* Rebootless Library Patching
+* Avoid rebooting the application
+* Support OpenSSL & Glibc
+
+### Getting trial license
+
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+
+If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
+
 ### Supported operating systems
 
 LibraryCare patching is now available for the following operating systems:
@@ -690,6 +709,25 @@ This command will deploy and enable the `U20210818_01-qemu` patchset in to the `
 DataBaseCare is available for Beta testing! Sign up [here](https://tuxcare.com/live-patching-services/databasecare/).
 
 DataBaseCare provides live patching for MySQL, MariaDB, PostgreSQL and other enterprise databases. It keeps your applications running while your database backend is being updated, enhancing security, availability and compliance.
+
+### Introduction
+Database Case is a Live Patching service for MySQL, MariaDB, PostgreSQL, and other enterprise open source databases, DatabaseCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
+
+### Benefits
+Database Patching is done for fixing bugs, improving system performance, and reducing the number of vulnerabilities but there is a huge impact and effort required for these activities. With DatabaseCare, it applies the patch in memory without requiring any downtime on the database. 
+
+Live patching applies fast security updates without the need to wait for maintenance windows - in fact, organizations deploying DatabaseCare can completely eliminate most maintenance windows on database systems and still be more secure than before.
+
+### Key Features
+* Support MySQL, MariaDB, PostgreSQL, and other enterprise open source databases
+* Avoid failover database in High Availability environments
+* Avoiding workload migration during the downtime 
+
+### Getting trial license
+
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+
+If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
 
 ### How DataBaseCare works
 
