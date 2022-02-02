@@ -339,7 +339,7 @@ To create a local mirror of the repository with security updates via rsync, use 
 * For CentOS 8.4:
 
 ```
-rsync://repo.cloudlinux.com/CENTOS84_ELS/
+rsync://repo.cloudlinux.com/CENTOS84_ELS/.
 ```
 
 For example:
@@ -351,7 +351,7 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS84_ELS/
 * For CentOS 8.5:
 
 ```
-rsync://repo.cloudlinux.com/CENTOS85_ELS/
+rsync://repo.cloudlinux.com/CENTOS85_ELS/.
 ```
 
 For example:
