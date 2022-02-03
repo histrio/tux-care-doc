@@ -300,8 +300,8 @@ rsync://repo.cloudlinux.com/CENTOS6/
 For example:
 
 ```
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6ELS/
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6ELS/ .
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS6/ .
 ```
 
 ### OracleLinux 6 ELS
@@ -315,7 +315,7 @@ rsync://repo.cloudlinux.com/ORALINUX6ELS/
 For example:
 
 ```
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/ORALINUX6ELS/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/ORALINUX6ELS/ .
 ```
 
 ### Ubuntu 16.04 ELS
@@ -329,7 +329,7 @@ rsync://repo.cloudlinux.com/UBUNTU1604ELS/
 For example:
 
 ```
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/UBUNTU1604ELS/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/UBUNTU1604ELS/ .
 ```
 
 ### CentOS 8 ELS
@@ -339,23 +339,23 @@ To create a local mirror of the repository with security updates via rsync, use 
 * For CentOS 8.4:
 
 ```
-rsync://repo.cloudlinux.com/CENTOS84_ELS/.
+rsync://repo.cloudlinux.com/CENTOS84_ELS/
 ```
 
 For example:
 
 ```
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS84_ELS/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS84_ELS/ .
 ```
 
 * For CentOS 8.5:
 
 ```
-rsync://repo.cloudlinux.com/CENTOS85_ELS/.
+rsync://repo.cloudlinux.com/CENTOS85_ELS/
 ```
 
 For example:
 
 ```
-rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS85_ELS/
+rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS85_ELS/ .
 ```
