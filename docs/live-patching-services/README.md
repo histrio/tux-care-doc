@@ -723,12 +723,6 @@ Live patching applies fast security updates without the need to wait for mainten
 * Avoid failover database in High Availability environments
 * Avoiding workload migration during the downtime 
 
-### Getting trial license
-
-You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
-
-If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
-
 ### How DataBaseCare works
 
 * An agent is installed on Database Servers which installs patches directly from our repository. 
