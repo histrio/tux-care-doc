@@ -708,10 +708,10 @@ This command will deploy and enable the `U20210818_01-qemu` patchset in to the `
 
 DataBaseCare is available for Beta testing! Sign up [here](https://tuxcare.com/live-patching-services/databasecare/).
 
-DataBaseCare provides live patching for MySQL, MariaDB, PostgreSQL and other enterprise databases. It keeps your applications running while your database backend is being updated, enhancing security, availability and compliance.
+DataBaseCare provides live patching for MariaDB. It keeps your applications running while your database backend is being updated, enhancing security, availability and compliance.
 
 ### Introduction
-Database Case is a Live Patching service for MySQL, MariaDB, PostgreSQL, and other enterprise open source databases, DatabaseCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
+Database Case is a Live Patching service for MariaDB. DatabaseCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
 
 ### Benefits
 Database Patching is done for fixing bugs, improving system performance, and reducing the number of vulnerabilities but there is a huge impact and effort required for these activities. With DatabaseCare, it applies the patch in memory without requiring any downtime on the database. 
@@ -719,7 +719,7 @@ Database Patching is done for fixing bugs, improving system performance, and red
 Live patching applies fast security updates without the need to wait for maintenance windows - in fact, organizations deploying DatabaseCare can completely eliminate most maintenance windows on database systems and still be more secure than before.
 
 ### Key Features
-* Support MySQL, MariaDB, PostgreSQL, and other enterprise open source databases
+* Support MariaDB at the moment
 * Avoid failover database in High Availability environments
 * Avoiding workload migration during the downtime 
 
