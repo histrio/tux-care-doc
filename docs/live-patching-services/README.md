@@ -658,7 +658,7 @@ configuration.
 ![](/images/eportal-qemu-feed.png)
 
 User interface for the QEMU patch management is the same as for KernelCare patches, and you
-can refer the [PatchSet Deployment](https://docs.kernelcare.com/kernelcare-enterprise/#patchset-deployment) documentation.
+can refer the [PatchSet Deployment](https://docs.tuxcare.com/eportal/#patchset-deployment) documentation.
 
 #### CLI to install the latest patchsets
 
