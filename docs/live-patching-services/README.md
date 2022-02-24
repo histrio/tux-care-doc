@@ -710,7 +710,7 @@ configuration.
 ![](/images/eportal-qemu-feed.png)
 
 User interface for the QEMU patch management is the same as for KernelCare patches, and you
-can refer the [PatchSet Deployment](https://docs.kernelcare.com/kernelcare-enterprise/#patchset-deployment) documentation.
+can refer the [PatchSet Deployment](https://docs.tuxcare.com/eportal/#patchset-deployment) documentation.
 
 #### CLI to install the latest patchsets
 
@@ -760,10 +760,8 @@ This command will deploy and enable the `U20210818_01-qemu` patchset in to the `
 
 DataBaseCare is available for Beta testing! Sign up [here](https://tuxcare.com/live-patching-services/databasecare/).
 
-DataBaseCare provides live patching for MariaDB. It keeps your applications running while your database backend is being updated, enhancing security, availability and compliance.
-
 ### Introduction
-Database Case is a Live Patching service for MariaDB. DatabaseCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
+DatabaseCare is a Live Patching service for MariaDB. DatabaseCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
 
 ### Benefits
 Database Patching is done for fixing bugs, improving system performance, and reducing the number of vulnerabilities but there is a huge impact and effort required for these activities. With DatabaseCare, it applies the patch in memory without requiring any downtime on the database. 
