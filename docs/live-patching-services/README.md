@@ -6,7 +6,7 @@ As part of Live Patching Services, TuxCare provides the following:
 * LibraryCare
 * KernelCare for IOT
 * QEMUCare
-* DatabaseCare (Available in Q3 2021)
+* DatabaseCare (Available for Beta)
 
 
 ## KernelCare Enterprise
@@ -25,7 +25,7 @@ Today, system administrators have to reboot a server to apply the latest kernel 
 
 ### Getting trial license
 
-You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 7 days.
 
 If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
 
@@ -549,7 +549,7 @@ Even if they’re patched manually, without a reboot, shared libraries may conta
 
 ### Getting trial license
 
-You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 7 days.
 
 If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
 
@@ -563,7 +563,7 @@ LibraryCare patching is now available for the following operating systems:
 * Oracle Linux 7
 * Oracle Linux 8
 * Debian 9/10
-* Ubuntu 16.04/18.04
+* Ubuntu 16.04/18.04/20.04
 * Proxmox VE 6
 * Scientific Linux
 
