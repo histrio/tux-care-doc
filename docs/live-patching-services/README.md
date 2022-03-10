@@ -6,7 +6,7 @@ As part of Live Patching Services, TuxCare provides the following:
 * LibraryCare
 * KernelCare for IOT
 * QEMUCare
-* DatabaseCare (Available in Q3 2021)
+* DatabaseCare (Available for Beta)
 
 
 ## KernelCare Enterprise
@@ -25,13 +25,13 @@ Today, system administrators have to reboot a server to apply the latest kernel 
 
 ### Getting trial license
 
-You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 7 days.
 
 If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
 
 ### Installation
 
-KernelCare Enterprise is compatible with 64-bit versions of AlmaLinux/CloudLinuxOS/CentOS/RHEL 6,7 and 8, Oracle Linux 6 and 7, Amazon Linux 1 and 2, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8,9 and 10, Proxmox VE 5 and 6, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04 and 16.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
+KernelCare Enterprise is compatible with 64-bit versions of AlmaLinux/CloudLinuxOS/CentOS/RHEL 6,7 and 8, Oracle Linux 6 and 7, Amazon Linux 1 and 2, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8,9 and 10, Proxmox VE 5 and 6, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04, 16.04, 18.04 and 20.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
 
 To install KernelCare Enterprise, run:
 
@@ -549,7 +549,7 @@ Even if they’re patched manually, without a reboot, shared libraries may conta
 
 ### Getting trial license
 
-You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 30 days.
+You will need a trial activation key to be able to use the KernelCare Enterprise. The trial license subscription will work for 7 days.
 
 If you have any issues getting activation key or if you have any questions regarding using your trial subscription – contact [sales@cloudlinux.com](mailto:sales@cloudlinux.com) and we will help.
 
