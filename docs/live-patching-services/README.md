@@ -459,7 +459,7 @@ After patches were applied, there are no kernel-related CVEs
 ### UEFI Secure Boot Support
 
 
-:::Note
+:::tip Note
 This feature is an early stage of adoption. Not all the distribution will be able to support. 
 :::
 
@@ -527,6 +527,729 @@ That's it. Now you should be able to apply patches as usual.
 To get more information about signing kernel modules for secure boot, see
 [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-kernel-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-kernel-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel).
 
+
+### Firewall and Proxy Settings
+
+
+#### Patching servers through firewall
+ 
+As long as your servers have access to the Internet, even behind NAT —  you will be able to use KernelCare patch server without any problems.
+
+Generally, KernelCare requires connection to only two servers for a proper work:
+
+```
+cln.cloudlinux.com
+patches.kernelcare.com
+```
+
+An additional address is used for KernelCare agent installation/update:
+
+```
+repo.cloudlinux.com
+```
+
+![](/images/patchingthroughfirewall.png)
+
+#### Patching servers through proxy
+
+ 
+If your servers don't have direct Internet access but can gain access to the Internet using proxy, the configuration is not that different. KernelCare can pick up standard environment variables for a proxy.
+
+Make sure you have environment settings for proxy setup, and everything else will be the same as if servers were directly connected to the Internet:
+
+```
+# export http_proxy=http://proxy.domain.com:port
+# export https_proxy=http://proxy.domain.com:port
+```
+
+:::tip Note
+Settings defined by `export` are case-insensitive, so the example above could be as follows:
+:::
+
+```
+# export HTTP_PROXY=http://proxy.domain.com:port
+# export HTTPS_PROXY=http://proxy.domain.com:port
+```
+
+You can define these settings in the KernelCare config `/etc/sysconfig/kcare/kcare.conf`.
+
+Example: 
+
+```
+$ cat /etc/sysconfig/kcare/kcare.conf
+AUTO_UPDATE=True
+HTTPS_PROXY=http://myproxy.com:59794
+```
+
+If you define these settings in the config, you don't need to export them each `kcarectl` launch and don't need to edit cron jobs.
+
+All `kcarectl` launches will be aware of proxy settings from the config. In this case, you need to set proxy settings only once. 
+
+![](/images/patchingthroughproxy.png)
+
+
+### KernelCare on AWS – Deployment User Guide
+
+
+### Introductory Material
+
+#### Introduction
+
+The Linux kernel is the most important piece of software on your server, as a security flaw in it can expose all of your services and customers' data. KernelCare is a technology that allows you to keep the Linux kernel safe at all times, automatically, without ever having to stop the server and rebooting it causing downtime and inconvenient scheduling of maintenance windows. This improves availability, security, stability, operation costs, and customer satisfaction. It works with almost all mainstream distributions of Linux. It is simple, fast, and very easy to deploy while being able to handle very complex patches and customized kernels if you need them.
+
+#### Prerequisites and Requirements
+
+KernelCare can be installed on any x86_64 compatible server or VM running one of the following distribution:
+* Amazon Linux 1, 2
+* CentOS 6, 7, Xen4CentOS, CentOS-Plus, ElRepo
+* CloudLinux 6, 7
+* Debian 7, 8, 9, 8-backports
+* Oracle Linux 6, 7
+* ProxmoxVE 3,4,5
+* RedHat EL 6, 7
+* Ubuntu 14.04, 16.04, 18.04
+* Virtuozzo 6
+
+The exact list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/).
+
+Standard OS kernels are required in most cases unless the custom kernel is supported.
+
+The software can be installed on the running server and doesn't require a reboot.
+
+Basic Linux skills are sufficient to deploy KernelCare on AWS. Simple deployments involve just an EC2 instance. KernelCare is available as BYOL model. You need to register in our [customer portal](https://cln.cloudlinux.com) to get the trial license. Once you get the trial license, you need to register your running EC2 instance with the activation key.
+
+
+#### Architecture Diagrams
+
+As long as your servers have access to the Internet, even behind NAT – you will be able to use KernelCare patch server without any problems.
+
+Generally, KernelCare requires HTTPS connection to two servers for the proper work:
+
+* cln.cloudlinux.com
+* patches.kernelcare.com
+
+
+![](/images/AWS_arch2.png)
+
+If your servers don't have direct Internet access but can gain access to the Internet using proxy, the configuration is not that different. KernelCare can pick up standard environment variables for proxy.
+
+![](/images/AWS_proxy_arch2.png)
+
+Make sure you have environment settings for proxy setup, and everything else will be the same as if the servers were directly connected to the Internet:
+
+```
+# export http_proxy=http://proxy.domain.com:port
+# export https_proxy=http://proxy.domain.com:port
+```
+
+#### Planning Guidance
+
+#### Security
+
+The only thing you need to be able to install/control you KernelCare deployment is SSH access (root credentials, key-based authentication/sudo or similar mechanisms are preferred).
+
+#### Costs
+
+KernelCare is billed as a subscription service – you can find more details in the table below.
+
+| **License Volume** | **Monthly Price** | **Annual Price** |
+| ----------- | ----------- | ----------- |
+| 1      | $3.95       | $45       |
+| 2-49   | $2.95       | $33       |
+| 50-499 | $2.55       | $28       |
+| 500+   | $2.25       | $25       |
+
+#### Sizing
+
+KernelCare agent has a tiny RAM footprint – binary patches usually require less than 1 MB.
+
+#### Deployment Guidance
+
+#### Deployment Assets
+
+To install KernelCare, run:
+
+```
+curl -s -L https://kernelcare.com/installer | bash
+```
+
+or:
+
+```
+wget -qq -O - https://kernelcare.com/installer | bash
+```
+If you are using IP-based license, nothing else required to be done.
+If you are using key-based license, run:
+
+```
+$ /usr/bin/kcarectl --register KEY
+```
+
+`KEY` is the registration key code string provided when you sign up for purchase or trial of the product.
+
+You can easily automate KernelCare deployment with Ansible, Puppet, Chef or other automation tools. 
+Here are the steps that may be automated:
+
+1. Distribute KernelCare agent package (optional – required only for servers with no access to the Internet) and a KernelCare agent configuration file (`/etc/sysconfig/kcare/kcare.conf`).
+2. Set required environmental variables (optional).
+3. Install KernelCare agent from either locally available package or central KernelCare download location.
+4. Register KernelCare with either license key or IP-based license.
+
+#### Operational Guidance
+
+#### Health Check
+
+Systems protected by KernelCare can be monitored by means of CloudLinux Network (CLN) portal available at [https://cln.cloudlinux.com](https://cln.cloudlinux.com). Registered KernelCare installations are grouped by license keys. Kernels that are marked with exclamation sign in <span style="color:#E76930">amber</span> do not have the latest patches installed.
+
+![](/images/KC-Ent-monit.png)
+
+In either case, you can check whether the latest available patch has been applied by running the following command on a system protected by KernelCare:
+
+```
+$ /usr/bin/kcarectl --check
+```
+#### Backup and Recovery
+
+There is no reason to backup KernelCare. KernelCare doesn't store any data. You can always re-install and re-register KernelCare.
+To backup the configuration file of KernelCare if you have modified it, backup the `/etc/sysconfig/kcare/` folder.
+
+#### Routine Maintenance
+
+KernelCare is packaged in RPM/DEB packages (depending on Linux distribution) and will update any time system packages are updated. No additional maintenance is needed.
+
+#### Emergency Maintenance
+
+If one of your instances degraded, once you start another instance based on EBS or snapshot – KernelCare will continue working as before, no additional work is needed.
+If you set up a new server instead, re-register KernelCare on the new server.
+If you decide to uninstall patches, run command:
+
+```
+# kcarectl --unload
+```
+
+or complete remove *kernelcare* package by running the following command:
+
+* on RPM-based systems
+    ```
+    # rpm -e kernelcare
+    ```
+or
+*  on DEB-based systems
+    ```
+    # dpkg --remove kernelcare
+    ```
+#### Patch Feed Advanced Options
+
+##### **Test and Delayed Feeds**
+
+KernelCare Patch Server has several patch feeds available in addition to the standard (production) feed:
+* **Test feed** – the newest patches (test builds) that have not undergone the complete testing process. Test feed makes it possible to start testing new patches earlier.
+* **Delayed feeds** – instructs KernelCare to skip loading patches that were released within the last 12/24/48 hours.
+
+The alternate feed option is enabled by setting `PREFIX` variable in `/etc/sysconfig/kcare/kcare.conf` to one of `test`/`12h`/`24h`/`48h`.
+
+##### **Feed Management With Sticky Patch Feature**
+
+The best way to handle QA and Production environments is to use Sticky tag feature of KernelCare license keys issued from CloudLinux Network (CLN) portal. 
+To use this tag, go to CLN portal → KernelCare tab → click on the target key → Edit Key Info window.
+
+![](/images/KC-Ent-list.png)
+
+![](/images/KC-Ent-edit.png)
+
+You should provide a separate key for each environment and set them to a particular sticky tag which is actually the date to which all the servers in an environment have to be patched.
+
+![](/images/KC-Ent-sticky.png)
+
+The date in Sticky tag field can be any date from May 28, 2018 up to one day before today.
+
+To use Sticky tag feature on the servers to be patched, run:
+
+```
+$ /usr/bin/kcarectl --set-sticky-patch=KEY
+```
+
+Alternatively, you can do the same by adding `STICKY_PATCH=KEY` to the `/etc/sysconfig/kcare/kcare.conf` file.
+  
+:::tip Warning
+**Do Not** replace the `KEY` word with the actual KernelCare license key used to register the server.
+:::
+
+When the Sticky tag feature is enabled for particular servers, all such servers will get patches only released before the date specified in the Sticky tag field.
+
+This way, you can add new patches to all the servers in some environment (i.e. registered with the same KernelCare license key) by updating only a single field in the CLN portal.
+
+#### Support
+
+We offer unlimited, 24x7x365 support. [Submit a request](https://cloudlinux.zendesk.com/hc/requests/new) or email us at [support@cloudlinux.com](mailto:support@cloudlinux.com).
+* We answer all support questions within one business day and most within a couple of hours
+To expedite the support, run the following command on your server (as root user):
+```
+# kcarectl --doctor
+```
+ Then paste the generated key into the support request.
+
+#### Support Costs
+
+Your KernelCare subscription includes free 24/7 support.
+
+#### Accessibility
+
+#### Reference Materials
+
+* KernelCare website: [https://www.kernelcare.com](https://www.kernelcare.com)
+* KernelCare Blog: [https://www.kernelcare.com/blog/](https://www.kernelcare.com/blog/)
+* KernelCare Patch Server: [https://patches.kernelcare.com](https://patches.kernelcare.com)
+* KernelCare documentation: [https://docs.kernelcare.com/](https://docs.kernelcare.com/)
+* CloudLinux Network – CLN (Billing Portal): [https://cln.cloudlinux.com](https://cln.cloudlinux.com)
+* CloudLinux 24/7 online support system: [https://tuxcare.zendesk.com](https://tuxcare.zendesk.com)
+  
+#### Localization
+
+KernelCare is available in the English language only.
+
+
+
+### Reseller Partner UI
+
+
+Once you have got the reseller partner access, in IP Reseller Partner UI you can view and manage IP licenses, billing options, profile details. Here you can track your money balance, licenses count and licenses prices as well as using IP address search to find customers. You can find more information about KernelCare licensing [here](https://www.kernelcare.com/pricing/).
+
+
+#### Server Section
+
+As soon as you have added funds (See **Billing Info/Add Funds** below) to your account you can immediately add new licenses for clients. To add IP KernelCare license:
+
+1. Enter IP address in **Add IP License** field, choose license type in pull-down menu (KernelCare) and click **Add license**.
+
+![](/images/reseller001.jpg)
+
+2. To delete license click **Delete** in front of the needed IP address.
+
+3. To add KernelCare Key license go to **KernelCare Keys** tab, enter the number of servers allowed for the license in **Max Servers**, add description if needed and click **Add** . The key will be generated and appear in the list below.
+
+In the **Operations List** you are able to edit or delete the key.
+
+![](/images/reseller007_zoom96.png)
+
+#### Billing Info/Add Funds
+
+To add funds:
+
+1. Click **Add Funds** near your balance or go to **Billing Info/Add Funds** on the top of the starting page of your account.
+
+2. Click **Add** to add credit card details, then enter funds amount and click **TopUp** or **Process to Checkout** to pay via PayPal.
+
+
+![](/images/reseller002.jpg)
+
+While adding credit card details, you can also choose **Auto add funds** option - the funds amount you choose in pull down menu will be automatically added when your balance is below $100.
+
+If you choose **Auto repay**, your card will be automatically charged when your balance becomes negative. Minimal charge is $20 (E.g. for balance -$15 - you'll be charged at $20, for balance -$134.2 - you'll be charged at $134.2).
+
+
+![](/images/reseller003.jpg)
+
+:::tip Note
+If your balance is shown as negative, it means that you have to deposit more funds.
+:::
+
+#### API Section
+
+CloudLinux and KernelCare IP licenses adding and removing is compatible with different hosting and domain management and billing systems and platforms. You can find comprehensive information on all possible CloudLinux modules and plug-ins APIs in API Section.
+
+![](/images/reseller004.jpg)
+
+#### Profile
+
+You can edit your profile information by clicking on **Profile** section. Edit the necessary info and click **Update Account**.
+
+![](/images/reseller5.jpg)
+![](/images/reseller006.jpg)
+
+
+### How To
+
+#### How to disable HyperThreading (SMT) without reboot: KernelCare case
+
+This article explains how to disable or enable SMT (Simultaneous multithreading) without rebooting using KernelCare, to help mitigate the recent MDS/Zombieload vulnerability.
+
+Disabling CPU simultaneous multithreading (SMT) is one of the mitigations needed to counter the recent MDS vulnerability (also known as ‘Zombieload’). There is a performance impact that depends on the configuration of the hosting platform and its workload patterns. You should also consider the impact of other mitigation strategies, such as assigning dedicated cores to guests (e.g. VMs).
+
+You can control and get the status of SMT with the kernel’s `sysfs` interface. There are two files, both in the `/sys/devices/system/cpu/smt` directory:
+
+* `control`
+* `active`
+
+
+If you cannot find the `/sys/devices/system/cpu/smt` directory, this means your running kernel does not support SMT. In this case, you need to apply KernelCare patches so the SMT controls become available to your system. Use the `kcarectrl` command:
+
+```
+kcarectl --update
+Kernel is safe
+```
+
+```
+ls -l /sys/devices/system/cpu/smt
+-r--r--r-- 1 root root 4096 May 17 13:06 active
+-rw-r--r-- 1 root root 4096 May 17 13:06 control
+```
+
+As soon as you have these files in place, it is possible to proceed with disabling SMT.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RUGCvEO1hAE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### SMT Control
+
+`/sys/devices/system/cpu/smt/control`
+
+This file lets you enable or disable SMT, and shows its state. There are three values:
+
+1. `on`: The CPU supports SMT and it is enabled. All logical CPUs can be taken offline or online without restriction.
+2. `off`: The CPU supports SMT but it is disabled. Only so-called primary SMT threads can be taken offline/online without restriction. Attempts to put a non-primary sibling thread online will be rejected.
+3. `notsupported`: The CPU does not support SMT. You will not be able to write to the control file.
+
+#### SMT Status
+
+`/sys/devices/system/cpu/smt/active`
+
+The contents of this file show the status of SMT (e.g. if two or more sibling threads are active on the same physical core the contents of this file is 1, if not: 0).
+
+Here are some commands to control SMT support (root permissions are required):
+
+#### Check the SMT state
+
+```
+cat /sys/devices/system/cpu/smt/active
+```
+
+#### Enable SMT
+
+```
+echo on > /sys/devices/system/cpu/smt/control
+```
+
+#### Disable SMT
+
+```
+echo off > /sys/devices/system/cpu/smt/control
+```
+
+Disabling SMT, [updating microcode](/how-to/#how-to-update-microcode-without-reboot-with-vendor-provided-package), and applying KernelCare patches will protect your systems against the ZombieLoad vulnerability. Note, only the latter action is applicable to virtual systems (e.g. VMs, VPS and other cloud instance types).
+
+#### How to update Microcode without reboot with vendor-provided package
+
+This article shows how to update the microcode of Intel CPUs running Linux.
+
+:::warning Warning
+To avoid possible issues with Microcode updating, enable SMT before the update.
+:::
+
+
+::: tip Note
+This article is subject to change and will be updated with instructions for other distributions.
+:::
+
+
+::: tip Notes
+* These steps must be done as root.
+* The examples shown are for Debian.
+* If you have doubts your systems are fully protected against CPU- and kernel-related vulnerabilities, please [get in touch with us](mailto:sales@cloudlinux.com).
+:::
+
+#### Updating microcode on Ubuntu and Debian
+
+1. Find the microcode package download link for your platform
+   
+    * Ubuntu: [https://usn.ubuntu.com/3977-1/](https://usn.ubuntu.com/3977-1/)
+    * Debian: [https://packages.debian.org/search?keywords=intel-microcode](https://packages.debian.org/search?keywords=intel-microcode)
+  
+2. Download the package
+
+:::tip Note
+Example shown for Debian 9
+:::
+
+```
+cd <a temporary directory, e.g. /tmp>
+mkdir firmware
+cd firmware
+wget http://security.debian.org/debian-security/pool/updates/non-free/i/intel-microcode/intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+3. Check the downloaded package
+
+```
+md5sum intel-microcode_3.20190514.1~deb9u1_amd64.deb
+c7bc9728634137453e0f4821fb6bb436  intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+A list of checksums is on [the Debian packages download page](https://packages.debian.org/stretch/amd64/intel-microcode/download).
+
+4. Unpack the package
+
+```
+dpkg -x intel-microcode_3.20190514.1~deb9u1_amd64.deb
+```
+
+5. Check the unpacked files
+
+```
+ls -l
+total 1896
+drwxr-xr-x 5 root root   53 May 15 04:18 etc
+-rw-r--r-- 1 root root 1940140 May 17 11:42 intel-microcode_3.20190514.1~deb9u1_amd64.deb
+drwxr-xr-x 3 root root   22 May 15 04:18 lib
+drwxr-xr-x 3 root root   19 May 15 04:18 usr
+```
+6. Create a backup of existing microcode:
+
+```
+test -d /lib/firmware/intel-ucode/ && mv /lib/firmware/intel-ucode/ /lib/firmware/intel-ucode.backup
+```
+
+7. Copy the new microcode and check it
+
+```
+cp -r lib/firmware/intel-ucode/ /lib/firmware/
+ls -l /lib/firmware/ | grep intel-ucode
+drwxr-xr-x  2 root root 4096 May 17 11:47 intel-ucode
+drwxr-xr-x  2 root root 4096 May 16 20:54 intel-ucode.backup
+```
+
+8. Check the current microcode version
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+```
+
+9. (Optional) Double check the current microcode versions (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x12
+microcode : 0x12
+microcode : 0x12
+microcode : 0x12
+```
+
+10. Check the microcode reload file exists
+
+```
+ls -l /sys/devices/system/cpu/microcode/reload
+--w------- 1 root root 4096 May 17 11:54 /sys/devices/system/cpu/microcode/reload
+```
+
+11. Force the kernel to load the new microcode
+
+```
+echo 1 > /sys/devices/system/cpu/microcode/reload
+```
+
+12. Check the new microcode
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+[ 1483.494573] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.495985] microcode: updated to revision 0x21, date = 2019-02-13
+[ 1483.496012] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.496698] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.497391] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+```
+
+13. (Optional) Double check the new microcode version (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+```
+
+#### Updating Microcode on Red Hat and CentOS
+
+For RHEL-based distributions, you can use the `microcode_ctl utility` to update microcode.
+
+1. Get the latest microcode by updating the `microcode_ctl` package
+
+```
+yum update microcode_ctl
+```
+
+2. Create a force file
+
+Create a `force-late-intel–06–4f–01` inside the firmware directory.
+
+```
+touch /lib/firmware/`uname -r`/force-late-intel-06-4f-01
+```
+
+3. Run the microcode update
+
+```
+/usr/libexec/microcode_ctl/update_ucode
+```
+
+4. Force the kernel to load the new microcode
+
+```
+echo 1 > /sys/devices/system/cpu/microcode/reload
+```
+
+5. Check the new microcode
+
+```
+dmesg | grep microcode
+[ 2.254717] microcode: sig=0x306a9, pf=0x10, revision=0x12
+[ 2.254820] microcode: Microcode Update Driver: v2.01 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+[ 1483.494573] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.495985] microcode: updated to revision 0x21, date = 2019-02-13
+[ 1483.496012] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.496698] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+[ 1483.497391] platform microcode: firmware: direct-loading firmware intel-ucode/06-3a-09
+```
+
+6. (Optional) Double check the new microcode version (revisions per core)
+
+```
+cat /proc/cpuinfo | grep -e microcode
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+microcode : 0x21
+```
+
+#### Updating Microcode on CentOS 6
+
+1. Get the latest microcode by updating the `microcode_ctl` package
+
+```
+yum update microcode_ctl
+```
+
+2. If `yum update microcode_ctl` outputs the following:
+
+```   
+Package(s) microcode_ctl available, but not installed.
+No Packages marked for Update
+```
+
+you need to install the package manually.
+
+3. To install `microcode_ctl` package, run the command:
+
+```
+yum install microcode_ctl
+```
+
+The command output:
+
+```
+Installed:
+  microcode_ctl.x86_64 2:1.17-33.11.el6_10                                                                                                                                 
+
+Complete!
+```
+
+4. Check CPU microcode version:
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 9
+microcode       : 9
+microcode       : 9
+microcode       : 9
+```
+
+5. Try to update microcode
+
+```
+microcode_ctl -u
+```
+
+If you see the output:
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: cannot open /dev/cpu/microcode for writing errno=2 (No such file or directory)
+```
+
+You need to load driver microcode.
+
+6. Load driver microcode
+
+```
+modprobe microcode
+```
+
+7. Try to update microcode again:
+
+```
+microcode_ctl -u
+```
+If you see the output: 
+
+```
+microcode_ctl: writing microcode (length: 2370560)
+microcode_ctl: microcode successfully written to /dev/cpu/microcode
+```
+then update is successful.
+
+8. Check version:
+
+```
+cat /proc/cpuinfo | grep microcode
+microcode       : 17
+microcode       : 17
+microcode       : 17
+microcode       : 17
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EydWy-b9uns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+#### Plesk related
+
+#### How to get a KernelCare activation key from the extended Plesk license
+
+Often our clients purchase KernelCare licenses through Plesk/Odin and in such cases, they get a universal key which includes the KernelCare license and other additional keys for Plesk plugins. Such a key has the following syntax – `A00B00-0CDE00-F0G000-HIGK00-LM0N00`, – and initially, it is installed through Plesk automatically and the license gets activated successfully.
+
+However, if it is required to re-register the agent for some reason or simply get the KernelCare activation key separately, it would be impossible to apply the above-mentioned one – we would need to deal with the KernelCare service separately. 
+
+To get the KernelCare activation key from the extended Plesk license key, you will need to proceed with the following.
+
+1. Navigate to _Tools & Settings >> Plesk >> License Management >> Additional License Keys_
+
+  ![](/images/LicenseManagement.png)
+
+  ![](/images/AdditionalLicenseKeys.png)
+
+2. Click _Download key_ next to the KernelCare license listed on the page and open the file downloaded in some text editor
+
+3. Find the following abstract:
+
+  ```
+  <!--Key body-->
+  <aps-3:key-body core:encoding="base64" core:type="binary">YOUR_BASE64_ENCODED_LICENSE_KEY==</aps-3:key-body>
+  <!--Information about additional key-->
+  ```
+
+4. This is your base64-encoded key, and it should be decoded using a CLI utility or an online base64 decoder into UTF-8, e.g. [https://www.base64decode.org](https://www.base64decode.org). 
+The new license key should have the following format: `xxxxxxxxxxxxxxxx`. It will contain lower and upper case letters and numbers.
+
+5. Use the new key decoded to activate the service:
+
+  ```
+  /usr/bin/kcarectl --register DECODED_KEY_HERE
+  ```
+
+This is it!
 
 
 
