@@ -591,7 +591,7 @@ All `kcarectl` launches will be aware of proxy settings from the config. In this
 ### KernelCare on AWS – Deployment User Guide
 
 
-### Introductory Material
+#### Introductory Material
 
 #### Introduction
 
