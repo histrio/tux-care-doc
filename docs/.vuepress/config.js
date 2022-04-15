@@ -143,7 +143,7 @@ module.exports = {
 //          },
           {
             text: "Contact support",
-            url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
+            url: "https://tuxcare.zendesk.com/hc/en-us/requests/new"
           },
           { text: "Blog", url: "https://blog.tuxcare.com/" }
         ],
