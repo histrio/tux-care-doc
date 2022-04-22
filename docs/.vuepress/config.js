@@ -113,6 +113,8 @@ module.exports = {
 
     translationSource: "docs-dev.cln.cloudlinux.com",
     defaultURL: "/tuxcare/",
+    submitRequestURL: "https://tuxcare.zendesk.com/hc/en-us",
+    hideHeading: true,
     redirectionMapping: urls,
     sidebarDepth: 2,
     logo: "/logo.svg",
@@ -143,7 +145,7 @@ module.exports = {
 //          },
           {
             text: "Contact support",
-            url: "https://tuxcare.zendesk.com/hc/en-us/requests/new"
+            url: "https://tuxcare.zendesk.com/hc/en-us"
           },
           { text: "Blog", url: "https://blog.tuxcare.com/" }
         ],
@@ -157,6 +159,7 @@ module.exports = {
         // text for the edit-on-github link
         editLinkText: "Edit this page",
         tryFree: "Login to CLN",
+        submitRequest: "Contact Support",
         customHomeUrl: "https://www.tuxcare.com",
         search: "Search",
         // config for Service Worker
