@@ -6,7 +6,7 @@ As part of Live Patching Services, TuxCare provides the following:
 * LibraryCare
 * KernelCare for IOT
 * QEMUCare
-* DatabaseCare (Available for Beta)
+* DBCare (Available for Beta)
 
 
 ## KernelCare Enterprise
@@ -1484,7 +1484,7 @@ This command will deploy and enable the `U20210818_01-qemu` patchset in to the `
 DBCare is available for Beta testing! Sign up [here](https://tuxcare.com/live-patching-services/databasecare/).
 
 ### Introduction
-DatabaseCare is a Live Patching service for MariaDB. DBCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
+DBCare is a Live Patching service for MariaDB. DBCare keeps your applications running while your database backend is updated, enhancing database performance, reliability, security, and compliance.
 
 ### Benefits
 Database Update is done for fixing bugs, improving system performance, and reducing the number of vulnerabilities but there is a huge impact and effort required for these activities. With DBCare, it applies the patch in memory without requiring any downtime on the database. 
