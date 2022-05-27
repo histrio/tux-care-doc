@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # ePortal
 
 KernelCare Enterprise includes a web management console (ePortal)
@@ -197,35 +201,42 @@ You can set configuration in [ePortal config file](#config-files).
 
 ## Managing Users
 
-You can manage portal using `kc.eportal` utility:
+You can manage portal using `kc.eportal user` utility:
 
-| | | |
-|-|-|-|
-|`-l` | `--list-users`| list all users|
-|`-a` | `--add-user`| add a user|
-|`-d` | `--delete-user` |delete a user|
-|`-c` | `--change-password`| change a user password|
-|`-p` | `--password` | provide a password for a user|
-|`-h` | `--help` | show this help|
+```
+usage: kc.eportal user [-h] [-a] [-c] [-d] [-p PASSWORD] [-r {admin,readonly}] [--note NOTE] [user]
 
+list available users by default
+
+positional arguments:
+  user                  user name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a                    action: add new user
+  -c                    action: change user
+  -d                    action: delete user
+  -p PASSWORD, --password PASSWORD
+  -r {admin,readonly}, --role {admin,readonly}
+  --note NOTE           description
+```
 
 To add a user:
 
 ```
-kc.eportal -a admin -p AdminPassword
+kc.eportal user -a -p AdminPassword admin
 ```
 
 To change user's password:
 
 ```
-kc.eportal -c admin -p NewPassword
+kc.eportal user -c -p NewPassword admin
 ```
 
 Set user as read-only:
 
 ```
-kc.eportal -r user
-User 'user' is now readonly
+kc.eportal user -c -r readonly admin
 ```
 
 
@@ -936,6 +947,7 @@ Requires basic authorization with read only user permissions.
 * `offset`: Integer, optional. Set result to a specified offset. `limit` and
   `offset` can be used to iterate through result.
 * `only_count`: Boolean, optional. Return server count only.
+* `tag`: String, optional. Adds filter by server tag. E.g `tag=env:test` or `tag=ubuntu`.
 
 **Response:**
 
@@ -1171,7 +1183,7 @@ For one leader and two follower setup:
 follower1       follower2
 ```
 
-there is a chance to lost a `leader` node and `follower1`/`follower2` will not
+there is a chance to lose a `leader` node and `follower1`/`follower2` will not
 communicate with each other. To mitigate this issue, you can deploy a ring
 replication:
 
@@ -1567,3 +1579,31 @@ section, choose a corresponding OS).
 If all settings configured correctly the new **Sign In with SSO** button has to appear on login page `http://eportal_ip/admin/login`
 
 ![](/images/sso_eportal.png)
+
+
+## Custom patches storage
+
+By default patches with databases are stored in `/usr/share/kcare-eportal` for RHEL-based
+systems and `/var/lib/eportal` for deb-based systems. You can configure it to
+use split storage, for example to keep patches on external block device.
+
+Edit [ePortal config file](#config-files):
+
+```
+PATCHES_DIR = '/path/to/patches/storage'
+```
+
+Run:
+
+```
+kc.eportal sync-nginx-conf
+```
+
+It initializes storage and makes corresponding modifications to nginx config to
+serve patches from a new place.
+
+And restart `nginx` and `eportal` services to apply changes:
+
+```
+systemctl restart eportal nginx
+```
