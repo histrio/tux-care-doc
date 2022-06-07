@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # ePortal
 
 KernelCare Enterprise includes a web management console (ePortal)
