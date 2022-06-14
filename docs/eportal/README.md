@@ -1208,10 +1208,6 @@ bolt plan run eportal_puppet::unregister_server -t 192.168.246.110
 This can be called during machine tear down to properly remove the server from ePortal.
 
 
-
-
-
-
 ## How to setup ePortal to use HTTPS
 
 Some assumptions for a server where e-portal is deployed:
