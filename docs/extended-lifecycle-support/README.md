@@ -364,15 +364,14 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS85_ELS/ .
 
 ### Introduction
 
-This section contains information about available AlmaLinux OS and TuxCare OVAL streams that can be used for partner application integration.
+This section contains information about available TuxCare OVAL streams that can be used for partner application integration.
 
 Currently, we provide OVAL data for the following products:
 
-* AlmaLinux OS 8 and 9
 * CentOS 6 ELS
 * Oracle Linux 6 ELS
 * CentOS 8 ELS
-* KernelCare live patching that currently provides OVAL data for the following distributions:
+* [KernelCare live patching](https://docs.kernelcare.com/oval-data/) that currently provides OVAL data for the following distributions:
   * Debian: 7-11
   * Ubuntu: all LTS versions starting from 14.04
   * RHEL: 5-8
@@ -380,21 +379,7 @@ Currently, we provide OVAL data for the following products:
   * CentOS: 6-8
   * CentOS 6 ELS
 
-### AlmaLinux OS OVAL streams
-
-The supported AlmaLinux OS versions and their public OVAL streams are listed below:
-
-AlmaLinux OS 8:
-
-* [https://security.almalinux.org/oval/org.almalinux.alsa-8.xml.bz2](https://security.almalinux.org/oval/org.almalinux.alsa-8.xml.bz2)
-* [https://security.almalinux.org/oval/org.almalinux.alsa-8.xml](https://security.almalinux.org/oval/org.almalinux.alsa-8.xml)
-
-AlmaLinux OS 9:
-
-* [https://security.almalinux.org/oval/org.almalinux.alsa-9.xml.bz2](https://security.almalinux.org/oval/org.almalinux.alsa-9.xml.bz2)
-* [https://security.almalinux.org/oval/org.almalinux.alsa-9.xml](https://security.almalinux.org/oval/org.almalinux.alsa-9.xml)
-
-### TuxCare ELS
+### TuxCare ELS OVAL Streams
 
 * CentOS 6: [https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml](https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml)
 * Oracle Linux 6: [https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml](https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml)
