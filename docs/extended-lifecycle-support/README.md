@@ -396,74 +396,7 @@ AlmaLinux OS 9:
 
 ### TuxCare ELS
 
-Extended Lifecycle Support offers additional access to an operating system that has already reached its end-of-life or will reach it in a little while. Extended Lifecycle Support delivers updates and CVEs patches to keep the system secure.
-
-You can find more information here: [https://tuxcare.com/extended-lifecycle-support/](https://tuxcare.com/extended-lifecycle-support/) 
-
-### OVAL data for ELS
-
-#### CentOS 6 ELS
-
-The CentOS 6 ELS OVAL stream is available here: [https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml](https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml).
-
-The repository installation [instructions](/extended-lifecycle-support/#centos-6-els):
-
-```
-$ wget https://repo.cloudlinux.com/centos6-els/install-centos6-els-repo.py
-$ python install-centos6-els-repo.py --license-key ClE-xGV3XSK1uP8ajWPfJWOxZMsLNVesWkoM9Q7gK0xTIBLMdxhBpEa2g2OzqfrpVel8
-```
-
-**How to dedicate ELS on the system:**
-
-The `els-define` or `centos-els-release` packages is installed and signed with CL key:
-
-```
-$ rpm -qi els-define centos-els-release | grep -o "8c55a6628608cb71"
-```
-
-execution result: `8c55a6628608cb71`
-
-#### Oracle Linux 6 ELS
-
-The Oracle Linux 6 ELS OVAL stream is available here: [https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml](https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml)
-
-The repository installation [instructions](/extended-lifecycle-support/#oraclelinux-6-els):
-
-```
-$ wget https://repo.cloudlinux.com/oraclelinux6-els/install-oraclelinux-els-repo.py
-$ python install-oraclelinux-els-repo.py --license-key OELS-IipxKyE5qXJm22S1XbTdHIhp
-$ yum install els-define -y
-```
-
-**How to dedicate ELS on the system:**
-
-The `els-define` packages is installed and signed with CL key:
-
-```
-$ rpm -qi els-define | grep -o "8c55a6628608cb71"
-```
-
-execution result: `8c55a6628608cb71`
-
-#### CentOS 8 ELS
-
-The CentOS 8.5 ELS OVAL stream is available here: [https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml)
-
-The repository installation [instructions](/extended-lifecycle-support/#centos-8-els):
-
-```
-$ wget https://repo.cloudlinux.com/el8-els/centos8.5-els/install-centos8.5-els-repo.sh
-$ sh install-centos8.5-els-repo.sh --license-key CELS_8-6pFMCSqvenQgOXl0Kd0E7dmVsBbN6v5mvekNa1yPZZtjLPVRYvjYROhUUDIEn5ql
-$ yum install els-define -y
-```
-
-**How to dedicate ELS on the system:**
-
-
-The `els-define` packages is installed and signed with CL key:
-
-```
-$ rpm -qi els-define | grep -o "8c55a6628608cb71"
-```
-
-execution result: `8c55a6628608cb71`
+* CentOS 6: [https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml](https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml)
+* Oracle Linux 6: [https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml](https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml)
+* CentOS 8.5: [https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml)
+* Ubuntu & other platforms will be available soon.
