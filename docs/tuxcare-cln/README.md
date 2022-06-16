@@ -39,7 +39,7 @@ Click _Dashboard_. You will be redirected to the _My Products_ page.
 The following actions are available:
 
 * **Manage licenses and billing cycle**. Click the link to contact our Sales team to change license quantity and product quota, and to manage the billing cycle.
-* **Manage activation keys**. Shortcut to the [Extended Support Services | Activation Keys](/tuxcare-cln/#activation-keys) page. 
+* **Manage activation keys**. Shortcut to the [Extended Support Services | Activation Keys](/tuxcare-cln/#activation-keys) page.
 
 ### Servers
 
@@ -408,3 +408,30 @@ It is possible to set reports receiving for an account to the desired email addr
 
 
 To add a new report configuration, click _Add config_.
+
+## OVAL data
+
+KernelCare provides automated live patching for Linux kernels with centralized management, common automation and various vulnerability management tools integration.
+
+You can find more information here:
+
+* [https://tuxcare.com/live-patching-services/kernelcare-enterprise/](https://tuxcare.com/live-patching-services/kernelcare-enterprise/)
+* [https://docs.tuxcare.com/live-patching-services/#kernelcare-enterprise](https://docs.tuxcare.com/live-patching-services/#kernelcare-enterprise)
+
+KernelCare OVAL feeds for supported distributions can be found here: [https://patches.kernelcare.com/oval/](https://patches.kernelcare.com/oval/).
+
+A system managed by KernelCare can be detected by the `kernelcare` package presence:
+
+**For RPM-based distributions**
+
+```
+$ rpm -q kernelcare
+```
+
+**For Debian-based distributions**
+
+```
+$ dpkg -s kernelcare
+```
+
+The `kernelcare` packages are signed with the `6dc3d600cdef74bb` PGP key, the public key can be found here: [https://repo.cloudlinux.com/kernelcare/kernelcare.gpg](https://repo.cloudlinux.com/kernelcare/kernelcare.gpg).
