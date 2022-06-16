@@ -371,13 +371,6 @@ Currently, we provide OVAL data for the following products:
 * CentOS 6 ELS
 * Oracle Linux 6 ELS
 * CentOS 8 ELS
-* [KernelCare live patching](https://docs.kernelcare.com/oval-data/) that currently provides OVAL data for the following distributions:
-  * Debian: 7-11
-  * Ubuntu: all LTS versions starting from 14.04
-  * RHEL: 5-8
-  * AlmaLinux: 8
-  * CentOS: 6-8
-  * CentOS 6 ELS
 
 ### TuxCare ELS OVAL Streams
 
