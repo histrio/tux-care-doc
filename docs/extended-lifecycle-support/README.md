@@ -364,24 +364,39 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS85_ELS/ .
 
 ### Introduction
 
-This section contains information about available TuxCare OVAL streams that can be used for partner application integration.
+This section contains information about available TuxCare ELS OVAL streams that can be used for partner application integration.
 
 Currently, we provide OVAL data for the following products:
 
 * CentOS 6 ELS
 * Oracle Linux 6 ELS
 * CentOS 8 ELS
-* [KernelCare live patching](https://docs.kernelcare.com/oval-data/) that currently provides OVAL data for the following distributions:
-  * Debian: 7-11
-  * Ubuntu: all LTS versions starting from 14.04
-  * RHEL: 5-8
-  * AlmaLinux: 8
-  * CentOS: 6-8
-  * CentOS 6 ELS
+* Ubuntu 16.04 will be available soon.
+
 
 ### TuxCare ELS OVAL Streams
 
 * CentOS 6: [https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml](https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml)
 * Oracle Linux 6: [https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml](https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml)
-* CentOS 8.5: [https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-oval-preview.xml)
-* Ubuntu & other platforms will be available soon.
+* CentOS 8.4: [https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml](https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml)
+* CentOS 8.5: [https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml)
+
+### How to use OVAL with ELS
+
+For CentOS 6, 8 and Oracle Linux 6:
+ 
+To use OVAL, ensure that the system is defined as ELS.
+
+1. Run the following command:
+
+```
+$ rpm -qi els-define centos-els-release | grep -o "8c55a6628608cb71"
+```
+
+If the result of the command is `8c55a6628608cb71`, then your system is defined as ELS and you can use OVAL.
+ 
+2. Otherwise, you should install the `els-define` package with the following command:
+
+```
+$ yum install els-define
+```
