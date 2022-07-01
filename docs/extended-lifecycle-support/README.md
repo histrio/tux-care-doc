@@ -371,7 +371,7 @@ Currently, we provide OVAL data for the following products:
 * CentOS 6 ELS
 * Oracle Linux 6 ELS
 * CentOS 8 ELS
-* Ubuntu 16.04 will be available soon.
+* Ubuntu 16.04
 
 
 ### TuxCare ELS OVAL Streams
@@ -380,10 +380,11 @@ Currently, we provide OVAL data for the following products:
 * Oracle Linux 6: [https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml](https://repo.cloudlinux.com/oraclelinux6-els/oraclelinux6-els-oval.xml)
 * CentOS 8.4: [https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml](https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml)
 * CentOS 8.5: [https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml)
+* Ubuntu 16.04: [https://repo.cloudlinux.com/ubuntu16_04-els/ubuntu16.04-els-oval.xml](https://repo.cloudlinux.com/ubuntu16_04-els/ubuntu16.04-els-oval.xml)
 
 ### How to use OVAL with ELS
 
-For CentOS 6, 8 and Oracle Linux 6:
+#### For CentOS 6, 8 and Oracle Linux 6
  
 To use OVAL, ensure that the system is defined as ELS.
 
@@ -399,4 +400,23 @@ If the result of the command is `8c55a6628608cb71`, then your system is defined 
 
 ```
 $ yum install els-define
+```
+
+
+#### For Ubuntu 16.04
+
+To use OVAL, ensure that the system is defined as ELS.
+
+1. Run the following command:
+
+```
+$ apt list els-define | grep -o "installed"
+```
+
+If the result of the command is `installed`, then your system is defined as ELS and you can use OVAL.
+ 
+2. Otherwise, you should install the `els-define` package with the following command:
+
+```
+$ apt-get install els-define
 ```
