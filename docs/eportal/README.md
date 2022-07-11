@@ -1654,7 +1654,7 @@ kc.eportal db download-missing
 
 ## Config files
 
-* ePortal config: `/etc/eportal/config`. Config for old versions (<1.35): `/usr/share/kcare-eportal/local.py`.
+* ePortal config: `/etc/eportal/config`. When creates the `/etc/eportal/config` file, one needs to be user group ownership of Nginx. Config for old versions (<1.35): `/usr/share/kcare-eportal/local.py`.
 * Web Server (nginx) config: `/etc/nginx/conf.d/eportal.conf`.
 * Data directory (RHEL based distros): `/usr/share/kcare-eportal`.
 * Data directory (Debian based distros): `/var/lib/eportal`.
