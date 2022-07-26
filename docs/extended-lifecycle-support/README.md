@@ -10,11 +10,11 @@ TuxCare provides Extended Lifecycle Support through four years after the EOL dat
 
 |Distribution   | EOL           | ELS          |
 | :---:         | :----:        | :---:        |
-| CentOS 6.     | December 2020 | December 2024|
+| CentOS 6      | December 2020 | December 2024|
 | OracleLinux 6 | December 2020 | December 2024|
 | Ubuntu 16.04  | April 2021    | April 2025   |
 | CentOS 8.4    | January 2022  | January 2026 |
-| CentOS 8.5.   | January 2022  | January 2026 |
+| CentOS 8.5    | January 2022  | January 2026 |
 
 
 ### Supported packages
