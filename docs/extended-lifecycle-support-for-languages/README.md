@@ -2,9 +2,7 @@
 
 ## Extended Lifecycle Support for PHP
 
-Extended Lifecycle Support (ELS) for PHP from TuxCare provides security fixes for PHP versions that have reached their end-of-life. This allows you to continue running your Linux server vulnerability-free.
-
-If you want support for other versions of distributions, simply add the other packages to the support covered by your SLA. If you have any questions please read our [FAQ’s section](https://tuxcare.com/faq/). For suggestions, please contact [sales@tuxcare.com](mailto:sales@cloudlinux.com). 
+Extended Lifecycle Support (ELS) for PHP from TuxCare provides security fixes for PHP versions that have reached their end-of-life. This allows to continue running Linux server vulnerability-free. 
 
 ### Supported OS
 
@@ -16,7 +14,7 @@ TuxCare provides Extended Lifecycle Support through four years after the EOL dat
 | AlmaLinux                             | 8.x 64-bit                               |
 | Ubuntu                                | 16.04 64-bit, 18.04 64-bit, 20.04 64-bit |
 
-### Supported versions.
+### Supported versions
 
 **CentOS, CloudLinux, AlmaLinux, Oracle Linux, etc.:** 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1
 
@@ -40,7 +38,7 @@ sh install-php-els-repo.sh --license-key XXX-XXXXXXXXXXXX
 
 3. Verify that the installation was successful.
 
-To ensure the installation has been completed successfully, run the following command. It should return the info about an available package. If you see information about the package, you can be sure that the installation was successful. After this, you will be able to install updates from the repository using a regular yum upgrade command.
+To ensure the installation has been completed successfully, run the following command. It should return the info about an available package. If information about the package will be available, it would mean that installation was successful. After that, updates will be available for installation from the repository using the usual yum upgrade command.
 
 ```
 yum info alt-php73
@@ -88,7 +86,7 @@ Run the installer script with keys:
 bash install-php-els-ubuntu-repo.sh --license-key XXX-XXXXXXXXXXXX
 ```
 
-Verify that the installation was successful. To ensure that installation has been completed successfully, run the following command. It should return the info about an available package. If you see information about the package, you can be sure that the installation was successful. After this, you will be able to install updates from the repository using a regular apt upgrade command.
+To ensure the installation has been completed successfully, run the following command. It should return the info about an available package. If information about the package will be available, it would mean that installation was successful. After that, updates will be available for installation from the repository using the usual apt upgrade command.
 
 ```
 apt-cache show alt-php73-cli
