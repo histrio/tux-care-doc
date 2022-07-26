@@ -184,6 +184,7 @@ module.exports = {
               "/live-patching-services/",
               "/eportal/",
               "/extended-lifecycle-support/",
+              "/extended-lifecycle-support-for-languages/",
               "/linux-support-services/",
               "/tuxcare-cln/"
             ]
