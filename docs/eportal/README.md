@@ -1375,6 +1375,31 @@ the follower instance:
 [root@eportal2.corp]$ kc.eportal replication --full-sync
 ```
 
+### Monitoring
+
+You can use `kc.eportal replication --short-status` CLI command to check replication
+status. It exits with code `1` if there are some issues with replication and
+outputs JSON:
+
+```json
+{
+  "ok": true,       // overall health status
+  "lag": 1,         // overall replication lag in seconds
+  "last_sync": 1,   // overall sync delta in seconds (how many seconds ago was successful communication with an upstream)
+  "upstream": {     // per upstream metrics
+    "node2": {
+      "ok": true
+      "lag": 1,
+      "last_sync": 1,
+    },
+    "node3": {
+      "ok": true
+      "lag": 1,
+      "last_sync": 1,
+    }
+  }
+}
+```
 
 ### Other replication setups
 
@@ -1654,7 +1679,7 @@ kc.eportal db download-missing
 
 ## Config files
 
-* ePortal config: `/etc/eportal/config`. If you create the `/etc/eportal/config` file, you need to set the user group ownership to nginx. Config for old versions (<1.35): `/usr/share/kcare-eportal/local.py`.
+* ePortal config: `/etc/eportal/config`. Config for old versions (<1.35): `/usr/share/kcare-eportal/local.py`.
 * Web Server (nginx) config: `/etc/nginx/conf.d/eportal.conf`.
 * Data directory (RHEL based distros): `/usr/share/kcare-eportal`.
 * Data directory (Debian based distros): `/var/lib/eportal`.
