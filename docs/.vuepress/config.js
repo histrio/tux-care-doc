@@ -144,8 +144,8 @@ module.exports = {
 //            url: "https://www.cloudlinux.com/getting-started-with-cloudlinux-os"
 //          },
           {
-            text: "Contact support",
-            url: "https://tuxcare.zendesk.com/hc/en-us"
+            text: "Support portal",
+            url: "https://tuxcare.com/support-portal/"
           },
           { text: "Blog", url: "https://blog.tuxcare.com/" }
         ],
