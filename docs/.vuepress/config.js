@@ -122,7 +122,7 @@ module.exports = {
 
     social: [
       { url: "https://www.facebook.com/TuxCare", logo: "/fb.png" },
-      { url: "https://twitter.com/tux_care", logo: "/tw.png" },
+      { url: "https://twitter.com/TuxCare_", logo: "/tw.png" },
       { url: "https://www.linkedin.com/showcase/tuxcare", logo: "/in.png" },
       {
         url: "https://www.youtube.com/channel/UCr4GTupdSlC33wfwAGk3jsA/%20Fa",
