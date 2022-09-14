@@ -116,7 +116,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   themeConfig: {
-    repo: "cloudlinux/tuxcare-doc",
+    repo: "cloudlinux/tux-care-doc",
     editLinks: true,
     docsBranch: "dev",
     docsDir: "docs",
