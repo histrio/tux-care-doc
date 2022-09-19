@@ -86,7 +86,8 @@ module.exports = {
       `window.dataLayer = window.dataLayer || [];
        function gtag(){dataLayer.push(arguments);}
        gtag('js', new Date());
-       gtag('config', 'G-RSVSWSBDSK');`
+       gtag('config', 'G-RSVSWSBDSK');
+       gtag('config', 'UA-12711721-24');`
     ],
     [
       "script",
