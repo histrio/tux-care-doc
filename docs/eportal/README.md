@@ -483,23 +483,26 @@ To unroll patchset from CLI, run:
 kc.eportal --unroll 16012017_1
 ```
 
-### Script to automatically install latest patchsets
+### Automatic updates
 
-It determines if latest patches are available and installs them to the **default feed**.
+You can configure automatic updates by enabling Autoupdate on the desired feeds via Settings → Feeds.
+
+:::danger Note
+The **default feed** cannot be configured via the Settings page to receive automatic updates.
+See the next section on configuring automatic updates for the **default feed**.
+:::
+
+### Automatic updates on default feed
+
+It is possible to configure automatic updates on the **default feed** by
+creating a cron job. The following commands can be used to receive these
+updates.
+
+The command below determines if latest patches are available and installs them to the **default feed**.
 
 ```
 kc.eportal --get-latest
 ```
-
-If you need to update other feeds that are marked for auto update instead of
-the default one, use a different argument:
-
-```
-kc.eportal --auto-update
-```
-
-Note, that the latter command will update only feeds that has `Autoupdate`
-attribute.
 
 ### Script to deploy release from a file
 
