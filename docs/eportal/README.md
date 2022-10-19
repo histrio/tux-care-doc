@@ -44,7 +44,7 @@ and the following number of connected servers:
 ## Installation
 
 ePortal is compatible with 64-bit versions of EL7/8 based distros like CentOS 7/8, AlmaLinux 8 and
-Ubuntu 20.04.
+Ubuntu 20.04/22.04.
 
 ### RHEL-based distros
 
@@ -95,6 +95,26 @@ curl https://repo.cloudlinux.com/kernelcare/kernelcare.gpg -o /usr/share/keyring
 
 cat > /etc/apt/sources.list.d/kcare-eportal.list <<EOL
 deb [signed-by=/usr/share/keyrings/kcare-eportal.gpg] https://repo.cloudlinux.com/kcare-eportal/20.04 focal main
+EOL
+```
+
+Install ePortal:
+
+```
+apt-get update && apt-get install -y --no-install-recommends kcare-eportal
+```
+
+### Ubuntu 22.04
+
+Setup ePortal repo:
+
+```
+apt-get install -y --no-install-recommends curl ca-certificates
+
+curl https://repo.cloudlinux.com/kernelcare/kernelcare.gpg -o /usr/share/keyrings/kcare-eportal.gpg
+
+cat > /etc/apt/sources.list.d/kcare-eportal.list <<EOL
+deb [signed-by=/usr/share/keyrings/kcare-eportal.gpg] https://repo.cloudlinux.com/kcare-eportal/22.04 jammy main
 EOL
 ```
 
@@ -192,6 +212,7 @@ section, choose a corresponding OS).
 
 | | |
 |-|-|
+| `AUTH_RESTRICTED_INDEX`    | Allow access to the index page only for registered users |
 | `AUTH_PASSWORD_MIN_LENGTH` | Minimal password length, default 5 |
 | `AUTH_SESSION_LIFETIME`    | Session lifetime in seconds, by default session will last till browser closing |
 | `AUTH_REFRESH_SESSION`     | If `False` (default), expires session after lifetime seconds after login. If `True`, expires session after lifetime seconds of inactivity. |
@@ -1007,6 +1028,39 @@ Requires basic authorization with read only user permissions.
     ]
 }
 ```
+
+### POST /admin/api/register
+
+Registers host by provided key and hostname.
+
+**Form (urlencoded) parameters:**
+
+* `key`: String, required. ePortal key to use for registration.
+* `hostname`: String, optional. Server's hostname to use.
+
+**Success response (200):**
+
+```json
+{
+    "server_id": "some-server-id"
+}
+```
+
+**Error response (400):**
+
+```json
+{
+    "error": "error code" # invalid-key | key-limit-reached
+}
+```
+
+**Example:**
+
+```
+curl -X POST http://your-eportal-domain/admin/api/register -F key=test
+{"server_id":"lw1MO1Du5sF3Cj39"}
+```
+
 
 ### POST /admin/api/delete_server
 
