@@ -2422,5 +2422,6 @@ module.exports = {
   "/ru/lve_manager/#end-user-2": "/ru/lve_manager/#node-js-selector-client-plugin",
   "/cldiag.html#check_phpselector": "/command-line_tools/#cldiag",
   "/live-patching-services/#databasecare": "/live-patching-services/#dbcare",
-  "/live-patching-services/#how-databasecare-works": "/live-patching-services/#how-dbcare-works"
+  "/live-patching-services/#how-databasecare-works": "/live-patching-services/#how-dbcare-works",
+  "/live-patching-services/#librarycare":"live-patching-services/#libcare"
 };

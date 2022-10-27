@@ -3,7 +3,7 @@
 As part of Live Patching Services, TuxCare provides the following:
 
 * KernelCare Enterprise
-* LibraryCare
+* LibCare
 * KernelCare for IOT
 * QEMUCare
 * DBCare (Available for Beta)
@@ -1253,17 +1253,17 @@ This is it!
 
 
 
-## LibraryCare
+## LibCare
 
-Formerly known as KernelCare+, LibraryCare detect and updates shared libraries in-memory without disrupting the applications using them.
+Formerly known as KernelCare+, LibCare detect and updates shared libraries in-memory without disrupting the applications using them.
 
 ### Introduction
-LibraryCare is a patching tool for shared libraries and detecting library-related vulnerabilities. Its patches the library files in memory without rebooting.
+LibCare is a patching tool for shared libraries and detecting library-related vulnerabilities. Its patches the library files in memory without rebooting.
 
 ### Benefits
 Today in a lot of organizations, it's very challenging to get approval for maintenance windows that are required to reboot servers and restart an application. There are multiple applications running on a single server today shared the Glibc and OpenSSL libraries. 
 
-Even if they’re patched manually, without a reboot, shared libraries may contain vulnerabilities. When libraries are updated on disk, old unpatched files can persist in a server’s memory. What’s more, vulnerability scanners don’t detect these old unpatched library files in memory. With LibraryCare the local server libraries are fully protected against all knows attackers and vulnerability
+Even if they’re patched manually, without a reboot, shared libraries may contain vulnerabilities. When libraries are updated on disk, old unpatched files can persist in a server’s memory. What’s more, vulnerability scanners don’t detect these old unpatched library files in memory. With LibCare the local server libraries are fully protected against all knows attackers and vulnerability
 
 ### Key Features
 * Rebootless Library Patching
@@ -1278,7 +1278,7 @@ If you have any issues getting activation key or if you have any questions regar
 
 ### Supported operating systems
 
-LibraryCare patching is now available for the following operating systems:
+LibCare patching is now available for the following operating systems:
 
 * CentOS/RHEL/CloudLinux OS 7
 * CloudLinux OS 8
@@ -1336,7 +1336,7 @@ libcare-cron init
 
 #### Auditd logs
 
-The LibraryCare tools heavily use a `ptrace` syscall and, in case of `auditd` trace it's calls, there will be a lot of records in a log. There is a rule that provided by kernelcare package and located here: `/etc/audit/rules.d/kernelcare.rules`. It will exclue kernelcare processes from audit.
+The LibCare tools heavily use a `ptrace` syscall and, in case of `auditd` trace it's calls, there will be a lot of records in a log. There is a rule that provided by kernelcare package and located here: `/etc/audit/rules.d/kernelcare.rules`. It will exclue kernelcare processes from audit.
 
 **Note**: no such rule is provided for `el6` due to old `autditd` restrictions. There is a command that will add such rule in runtime:
 
@@ -1344,7 +1344,7 @@ The LibraryCare tools heavily use a `ptrace` syscall and, in case of `auditd` tr
 auditctl -l | grep kcare | cut -d' ' -f2- | xargs -t -L1 -r auditctl -d && pgrep libcare-server | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcarever | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcare
 ```
 
-It removes all currently enabled KernelCare rules and adds a new one by LibraryCare's process ID.
+It removes all currently enabled KernelCare rules and adds a new one by LibCare's process ID.
 
 
 ### Unpatched Library Detector (UChecker)
