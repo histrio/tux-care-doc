@@ -74,22 +74,6 @@ module.exports = {
       }
     ],
     [
-      "script", 
-      {
-        src: "https://www.googletagmanager.com/gtag/js?id=G-RSVSWSBDSK",
-        async: "async"
-      }
-    ],
-    [
-      "script", 
-      {}, 
-      `window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-       gtag('config', 'G-RSVSWSBDSK');
-       gtag('config', 'UA-12711721-24');`
-    ],
-    [
       "script",
       {},
       `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -136,6 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     sidebarDepth: 2,
     logo: "/logo.svg",
     try_free: "https://portal.tuxcare.com",
+    gtm_code: "GTM-5BSW555",
 
     social: [
       { url: "https://www.facebook.com/TuxCare", logo: "/fb.png" },
