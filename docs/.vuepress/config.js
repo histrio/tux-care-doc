@@ -90,6 +90,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       lang: "en-US", // this will be set as the lang attribute on <html>
       title: "Documentation",
       description: "TuxCare"
+    },
+    "/jp/": {
+      lang: "ja",
+      title: "ドキュメンテーション",
+      description: "KernelCare ドキュメンテーション"
     }
   },
   theme: "cloudlinux",
@@ -112,7 +117,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       appId: "R7FCMJM4P7"
   },
 
-    translationSource: "docs-dev.cln.cloudlinux.com",
     defaultURL: "/tuxcare/",
     submitRequestURL: "https://tuxcare.zendesk.com/hc/en-us",
     hideHeading: true,
@@ -192,7 +196,66 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             ]
           }
         ]
+      },
+      "/jp/": {
+        title: "言語",
+        selectText: "日本語",
+        label: "日本語",
+        editLinkText: "編集",
+        tryFree: "Login to CLN",
+        search: "検索する",
+        serviceWorker: {
+          updatePopup: {
+            message: "新しいコンテンツが利用可能です",
+            buttonText: "最新の情報に更新"
+          }
+        },
+        algolia: {
+          apiKey: "c4c1bbf8d3bb32958b26dd7cc5e74472",
+          indexName: "kernelcare-jp",
+          appId: "R7FCMJM4P7"
+        },
+        stayInTouch: "連絡を取り合う",
+        bottomLinks: [
+            {
+                text: "よく寄せられる質問",
+                url: "https://tuxcare.com/faq/"
+            },
+            {
+                text: "サポート",
+                url: "hhttps://tuxcare.com/support-portal/"
+            },
+            { text: "ブログ", url: "https://blog.tuxcare.com/" }
+        ],
+        sidebar: [
+          {
+            title: "コンテンツ",
+            collapsable: false,
+            children: [
+              "/jp/tuxcare/",
+              "/jp/settings/",
+              "/jp/command-line/",
+              "/jp/how-to/",
+              "/jp/config-options/",
+              "/jp/disabling-some-patches/",
+              "/jp/delayed-feed/",
+              "/jp/extra-patchset/",
+              "/jp/sticky-patches/",
+              "/jp/scanner-interface/",
+              "/jp/kc-agent-monitoring/",
+              "/jp/upgrade/",
+              "/jp/uninstall/",
+              "/jp/technology/",
+              "/jp/AWS-deployment-guide/",
+              "/jp/kernelcare-enterprise/",
+              "/jp/kcare-nexpose/",
+              "/jp/kernelcare-whmcs-plugin/",
+              "/jp/proxy-settings/",
+              "/jp/eol-ubuntu-lts-kernels-support/"
+            ]
+          }
+        ]
       }
     }
-  }
+  }  
 };
