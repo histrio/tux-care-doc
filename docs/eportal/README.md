@@ -4,8 +4,7 @@ sidebarDepth: 1
 
 # ePortal
 
-KernelCare Enterprise includes a web management console (ePortal)
-for protected environments.
+TuxCare ePortal is the web management console dedicated to KernelCare Enterprise live patch management.
 
 ePortal software can help protect servers located behind the
 firewall (i.e. with no internet access) and can be installed both

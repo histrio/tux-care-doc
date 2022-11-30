@@ -1,7 +1,7 @@
-# TuxCare CLN
+# Subscription management portal
 
 
-CLN is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
+The TuxCare subscription management portal (CLN) is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
 
 ## Introduction
 
