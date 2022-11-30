@@ -189,6 +189,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "/tuxcare/",
               "/live-patching-services/",
               "/eportal/",
+              "/eportal-api/",
               "/extended-lifecycle-support/",
               "/extended-lifecycle-support-for-languages/",
               "/linux-support-services/",
