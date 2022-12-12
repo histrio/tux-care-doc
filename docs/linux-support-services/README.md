@@ -1,9 +1,9 @@
 # Linux Support Services
 
-TuxCare offers subscription packages in the Essential, Premium and Product OEM Support tiers. Available for AlmaLinux OS 8 and other popular Enterprise Linux distributions.
+TuxCare offers subscription packages in the Essential, Premium and Product OEM Support tiers. Available for AlmaLinux OS and other popular Enterprise Linux distributions.
 
 
-## Essential support for AlmaLinux OS 8
+## Essential support for AlmaLinux OS
 
 Provides basic support package for enterprises using AlmaLinux OS in production infrastructure:
 
@@ -11,7 +11,7 @@ Provides basic support package for enterprises using AlmaLinux OS in production 
 * 14 business day patch delivery on CVSS and higher CVEs
 * 24/7/365 email support
 
-## Premium support for AlmaLinux OS 8 and other Linux distributions
+## Premium support for AlmaLinux OS and other Linux distributions
 
 Provides patches and updates for various Linux distributions on custom basis, premium SLA, 24×7 incident support and access to consulting services
 
@@ -20,9 +20,9 @@ Provides patches and updates for various Linux distributions on custom basis, pr
 * need based out of repo security/bug fixes patches for any other linux distro (part of Statement Of Work)
 
 
-## Product NodeOS support for AlmaLinux OS 8
+## Product NodeOS support for AlmaLinux OS
 
-Provides a customized Linux support package for enterprise companies using AlmaLinux 8 as a node OS in products that are being shipped to customers. A specific set of packages, custom SLAs and a dedicated support team for instant incident response.
+Provides a customized Linux support package for enterprise companies using AlmaLinux as a node OS in products that are being shipped to customers. A specific set of packages, custom SLAs and a dedicated support team for instant incident response.
 
 * patch delivery and incident response negotiated specifically for each agreement
 * 10 business day patch delivery on CVSS and higher CVEs
