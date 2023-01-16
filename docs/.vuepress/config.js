@@ -234,25 +234,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             collapsable: false,
             children: [
               "/jp/tuxcare/",
-              "/jp/settings/",
-              "/jp/command-line/",
-              "/jp/how-to/",
-              "/jp/config-options/",
-              "/jp/disabling-some-patches/",
-              "/jp/delayed-feed/",
-              "/jp/extra-patchset/",
-              "/jp/sticky-patches/",
-              "/jp/scanner-interface/",
-              "/jp/kc-agent-monitoring/",
-              "/jp/upgrade/",
-              "/jp/uninstall/",
-              "/jp/technology/",
-              "/jp/AWS-deployment-guide/",
-              "/jp/kernelcare-enterprise/",
-              "/jp/kcare-nexpose/",
-              "/jp/kernelcare-whmcs-plugin/",
-              "/jp/proxy-settings/",
-              "/jp/eol-ubuntu-lts-kernels-support/"
+              "/jp/live-patching-services/",
+              "/jp/eportal/",
+              "/jp/eportal-api/",
+              "/jp/extended-lifecycle-support/",
+              "/jp/extended-lifecycle-support-for-languages/",
+              "/jp/linux-support-services/",
+              "/jp/tuxcare-cln/"
             ]
           }
         ]
