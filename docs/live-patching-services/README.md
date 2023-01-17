@@ -434,27 +434,66 @@ Let's assume that you have some kernel patch that you want to "stick" with. All 
 As you can see, the patch was released at 2020-09-16. And if apply label's date format, it becomes `16092020` that will be the sticky patch value.
 
 
-### Scanner Interface
+### Scanning for vulnerabilities
 
-#### Issue description
+Identifying the vulnerabilities that apply to your systems is an important task for IT and InfoSec teams, and at TuxCare we make it easy. KernelCare live patching is integrated natively with  vulnerability scanners including Tenable Nessus, Qualys, Rapid7 and many others.
 
-Commonly used security scanners can still see CVEs even if they are patched by KernelCare Enterprise. It turns out that all their decisions about CVE are based on:
+:::tip Note
+A generic integration that works with any vulnerability scanner is available for environments that native integration may not be sufficient. Contact your account manager or [sales@tuxcare.com](mailto:sales@tuxcare.com) for more information.
+:::
 
-* currently installed (or not) kernel packages
-* uname information
-
-#### How to use
+#### How to use a vulnerability scanner with KernelCare
 
 It’s rather simple. New scan results after installing a package and applying a patchset should not show any kernel CVEs that are handled by KernelCare Enterprise.
 
-For example, Nessus for an old kernel shows a bunch of detected CVEs
+For example, Nessus for an old kernel shows a bunch of detected CVEs:
 
 ![](/images/scanner-manipulation-before.png)
 
-After patches were applied, there are no kernel-related CVEs
+After the live patches were applied, there are no kernel-related CVEs:
 
 ![](/images/scanner-manipulation-after.png)
 
+
+#### How use OpenSCAP with KernelCare
+
+OpenSCAP is an open source vulnerability scanner and compliance tool and it can be used to scan a system protected by KernelCare Enterprise. The following commands show how to use OpenSCAP to produce a vulnerability report for a system.
+
+```
+$ source /etc/os-release
+$ wget https://patches.kernelcare.com/oval/com.kernelcare.${ID}.${VERSION_ID}.xml
+$ oscap oval eval --report report.htm com.kernelcare.${ID}.${VERSION_ID}.xml
+```
+
+#### How to natively integrate KernelCare with a vulnerability scanner
+
+:::tip Note
+These instructions are intended for integrators with 3rd party vulnerability scanners. 
+:::
+
+There are two ways for a vulnerability scanner to integrate with KernelCare live patching.
+
+
+#### Integrate via OVAL data
+
+KernelCare comes with OVAL data that provide the instructions to the scanner to identify the vulnerabilities that are addressed by the installed live patches. OVAL data are available for the operating systems supported by KernelCare Enterprise, including AlmaLinux, Red Hat Enterprise Linux, Oracle Linux, CentOS, Debian and Ubuntu.
+
+The OVAL data cover all KernelCare enterprise products and add-ons including LibCare, and QEMUCare.
+
+The OVAL data for KernelCare live patching are available at [patches.kernelcare.com/oval](https://patches.kernelcare.com/oval/).
+
+
+#### Integrate using files
+
+KernelCare provides two files that list the vulnerabilities that are addressed by the currently installed live patches. These files contain a list of CVEs separated by a newline.
+
+The list of vulnerabilities addressed by Kernel live patches is available at:
+
+* `/proc/kcare/cvelist`
+
+The list of vulnerabilities addressed by system live patching (LibCare, QEMUCare etc.) is available at:
+
+* `/var/cache/kcare/libcare_cvelist`
 
 ### UEFI Secure Boot Support
 
