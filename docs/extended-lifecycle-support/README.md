@@ -364,7 +364,7 @@ rsync  -avSHP --delete rsync://repo.cloudlinux.com/CENTOS85_ELS/ .
 
 ### Introduction
 
-This section contains information about available TuxCare ELS OVAL streams that can be used for partner application integration.
+Identifying the vulnerabilities that apply to your systems is an important task for IT and InfoSec teams, and at TuxCare we make it easy. We provide OVAL data that contain instructions to the vulnerability scanner to determine the addressed vulnerabilities from the ELS updates.  This section contains information about available TuxCare ELS OVAL streams.
 
 Currently, we provide OVAL data for the following products:
 
@@ -373,7 +373,6 @@ Currently, we provide OVAL data for the following products:
 * CentOS 8 ELS
 * Ubuntu 16.04
 
-
 ### TuxCare ELS OVAL Streams
 
 * CentOS 6: [https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml](https://repo.cloudlinux.com/centos6-els/centos6-els-oval.xml)
@@ -381,6 +380,24 @@ Currently, we provide OVAL data for the following products:
 * CentOS 8.4: [https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml](https://repo.cloudlinux.com/centos8.4-els/centos84-els-oval.xml)
 * CentOS 8.5: [https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml](https://repo.cloudlinux.com/centos8.5-els/centos85-els-oval.xml)
 * Ubuntu 16.04: [https://repo.cloudlinux.com/ubuntu16_04-els/ubuntu16.04-els-oval.xml](https://repo.cloudlinux.com/ubuntu16_04-els/ubuntu16.04-els-oval.xml)
+
+### How to use OpenSCAP with TuxCare ELS
+
+OpenSCAP is an open source vulnerability scanner and compliance tool and it can be used to scan a system protected by TuxCare ELS. The following command show how to produce a vulnerability report for the system:
+
+```
+oscap oval eval --report report.html [OVAL_FILE.XML]
+```
+
+### How integrate the OVAL data with a new vulnerability scanner
+
+Identifying the vulnerabilities that apply to your systems is an important task for IT and InfoSec teams, and at TuxCare we make it easy.
+
+To detect whether a system has TuxCare ELS installed, check for following file being present:
+/etc/els-release
+ 
+Once that is validated, you can use the corresponding to the operating system OVAL files from above to scan for vulnerabilities.
+
 
 ### How to use OVAL with ELS
 

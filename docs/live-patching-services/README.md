@@ -1361,7 +1361,32 @@ $ kcarectl --lib-unload
 
 #### Blacklisting
 
-If you need to avoid patching of some particular process it could be done by blacklist defining. Default one is located in the `/var/lib/libcare/blacklist` and contains a package-provided list. You can overwrite those values by creating the `/var/cache/kcare/userspace/blacklist` file with the higher priority.
+Applying a live patch may clash with software such as anti-viruses that detect or prevent memory updates. While the majority of software is compatible with live patching, for the software that may misbehave, LibCare comes with a default blacklist. The blacklist is located in the /var/lib/libcare/blacklist and contains the list of known applications that may misbehave when live patched. You can override those values by creating the file `/var/cache/kcare/userspace/blacklist`.
+
+The format of the file is as follows. Patterns should be specified line by line prefixed with pattern type and a colon. Comment starts with dash (#). Example:
+
+```
+ # Symantec Antivirus
+ path: /opt/Symantec/*
+ filename:symcfgd
+ filename:rtvscand
+ filename:smcd
+```
+
+Specifying `path` means that the whole path to binary will be taken into account, while using `filename` allows to blacklist a process irrespective of the full path to binary.
+
+Wildcards are also supported:
+
+```
+ filename:docker*
+ path:/usr/libexec/docker/docker-*
+```
+
+Also a POSIX regular expressions could be used as follows:
+
+```
+ regex:/usr/bin/[[:alnum:]]+
+```
 
 #### Auto update
 
