@@ -188,6 +188,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             children: [
               "/tuxcare/",
               "/live-patching-services/",
+              "/kernelcare-for-iot/",
               "/eportal/",
               "/eportal-api/",
               "/extended-lifecycle-support/",

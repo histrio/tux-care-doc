@@ -1,15 +1,17 @@
-# Live Patching Services
+# KernelCare Enterprise
 
-As part of Live Patching Services, TuxCare provides the following:
+KernelCare Enterprise live patching enhances your vulnerability patching program by providing live patches to the Linux kernel and, optionally, with add-ons to critical userspace components, as well as the virtualization stack.
+The systems are patched according to your patch deployment policy, allowing you to customize your patch management to align with the needs of your unique environment, whether online or in an air-gapped environment. Plus, your vulnerability reports reduce in size quickly as KernelCare seamlessly integrates with all popular vulnerability scanners to give you an accurate vulnerability exposure report.
 
-* KernelCare Enterprise
+KernelCare Enterprise brings KernelCare live patching by default and the following add-ons:
+
 * LibCare
-* KernelCare for IOT
 * QEMUCare
-* DBCare (Available for Beta)
+* DBCare
 
+The sections below describe KernelCare live patching and the additional add-ons in more detail.
 
-## KernelCare Enterprise
+## KernelCare
 
 ### Introduction
 KernelCare Enterprise is a live kernel patching service that provides security patches and bugfixes for a range of popular Linux kernels that can be installed without rebooting the system
@@ -1471,22 +1473,6 @@ $ curl -s -L https://kernelcare.com/uchecker | sudo LOGLEVEL=debug python
 ```
 
 To learn more, visit the [UChecker Github page](https://github.com/cloudlinux/kcare-uchecker).
-
-
-## KernelCare for IOT
-
-Provides live security patching for ARM64-based embedded systems for enterprise IoT users and original equipment manufacturers.
-
-For the list of supported distributions and chipsets, [visit this page](https://tuxcare.com/live-patching-services/kernelcare-iot/).
-
-### How KernelCare IoT works
-
-* The KernelCare team is constantly monitoring security mailing lists to check for vulnerabilities. As soon as one is found, the team prepares a patch and then sends it to distribution servers.
-* An agent will run a process on your device, checking with the distribution servers every 4 hours until it finds a new patch and then safely apply it to the running kernel without needing to stop it.
-* A special kernel module is used to apply the patches. It first loads the update into the kernel address space, then it places relocations on the original code/data to make sure the code block doesn’t execute during the update. Once finished, it will safely switch the execution path from the original to the updated code and then make sure the old code will never run again.
-* KernelCare does all of this instantly, automatically, and without service interruptions.
-
-For more information about KernelCare for IOT, [visit this page](https://tuxcare.com/live-patching-services/kernelcare-iot/).
 
 ## QEMUCare
 
