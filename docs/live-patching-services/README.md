@@ -566,6 +566,16 @@ That's it. Now you should be able to apply patches as usual.
 To get more information about signing kernel modules for secure boot, see
 [https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-kernel-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/signing-kernel-modules-for-secure-boot_managing-monitoring-and-updating-the-kernel).
 
+### Live patching and FIPS compliance
+
+The FIPS-140 certification of a Linux kernel validates that the cryptography contained within a Linux kernel complies with the US government FIPS-140 data protection standard. Meaning that algorithms like AES, the random generator and other cryptographic aspects of the kernel are implemented as the standard defines.
+
+At the same time the certification is a lengthy process –a typical validation can take almost a year– and for that reason only some of each vendor’s kernels are validated. That is because vendors release new kernels with security and feature updates on a regular cadence some as often as weekly, irrespective of their FIPS validation status. This means users of FIPS validated kernels need to choose between: (a) strict compliance by staying on the same kernel without updating until the next validated kernel is available and (b) reducing their security risk by installing new kernels with security updates even if they are not validated. The same story applies to the vendor’s live patching solutions.
+
+With KernelCare Enterprise it is possible to live patch FIPS-140 validated Linux kernels, for example at the Red Hat Enterprise Linux operating system. The live patches applied to these kernels, in this example, consist of the same RHEL kernel patches but are limited to the ones addressing security vulnerabilities. That way, a live patched kernel contains the same security fixes as a vendor update without any feature or bug-fix updates, e.g., updates that may change the cryptographic subsystem for performance or other non-security related reasons. 
+
+**In this way, security-conscious users of FIPS-validated Linux kernels that today apply their vendor's security patches can rely on KernelCare live patching the same way they do with their vendor's security updates**. Furthermore, KernelCare live patching applies the minimum possible updates to the validated kernel by explicitly excluding any non-security updates.
+
 
 ### Firewall and Proxy Settings
 
