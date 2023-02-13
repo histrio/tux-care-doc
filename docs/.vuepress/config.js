@@ -118,7 +118,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
     defaultURL: "/tuxcare/",
-    submitRequestURL: "https://tuxcare.zendesk.com/hc/en-us",
+    submitRequestURL: "https://tuxcare.com/support-portal/",
     hideHeading: true,
     redirectionMapping: urls,
     sidebarDepth: 2,
@@ -164,7 +164,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         label: "English",
         // text for the edit-on-github link
         editLinkText: "Edit this page",
-        tryFree: "Login to CLN",
+        tryFree: "Login to TuxCare portal",
         submitRequest: "Contact Support",
         customHomeUrl: "https://www.tuxcare.com",
         search: "Search",
@@ -204,7 +204,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         selectText: "日本語",
         label: "日本語",
         editLinkText: "編集",
-        tryFree: "Login to CLN",
+        tryFree: "Login to TuxCare portal",
         search: "検索する",
         serviceWorker: {
           updatePopup: {
