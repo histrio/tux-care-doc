@@ -1,12 +1,12 @@
 # Subscription management portal
 
 
-The TuxCare subscription management portal (CLN) is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
+The TuxCare subscription management portal is designed to easily manage your licenses of TuxCare products and services by means of a user-friendly interface.
 
 ## Introduction
 
 
-The following are available in CLN:
+The following are available in TuxCare portal:
 
 * Add, delete and edit licenses
 * Add, delete and edit servers
@@ -51,8 +51,8 @@ The table includes all servers that have been activated in all products within t
 
 * **Server name** — server hostname
 * **IP** — server IP address
-* **Registered** — a date when a server was activated. A server sends this information to CLN
-* **Group** – server group (please refer to the [CLN documentation](https://docs.cln.cloudlinux.com/dashboard/#server-groups) to find more information about server group)
+* **Registered** — a date when a server was activated. A server sends this information to TuxCare portal
+* **Group** – server group (please refer to the [TuxCare portal documentation](https://docs.cln.cloudlinux.com/dashboard/#server-groups) to find more information about server group)
 * **Installed products** — shows a logo of a product activated on a server
 * **Actions**
     * To remove an item, click on ![](/images/remove.png)
@@ -157,7 +157,7 @@ The table includes all servers registered with the key. The table contains the f
 
 * **Server name** — server hostname
 * **IP** — server IP address
-* **Registered** — a date when a server was activated. A server sends this information to CLN
+* **Registered** — a date when a server was activated. A server sends this information to TuxCare portal
 * **Last check-in** — the last date when a server successfully responded to check-in
 
 The following filters are available:
@@ -175,7 +175,7 @@ The table includes all servers activated for all products within Extended Lifecy
 
 * **Server name** — server hostname
 * **IP** — server IP address
-* **Registered** — a date when a server was activated. A server sends this information to CLN
+* **Registered** — a date when a server was activated. A server sends this information to TuxCare portal
 * **Installed products** — shows a logo of a product activated on a server
 * **Actions**
     * To remove an item, click on ![](/images/remove.png)
@@ -202,7 +202,7 @@ The table includes all servers activated for the product within Extended Lifecyc
 
 * **Server name** — server hostname
 * **IP** — server IP address
-* **Registered** — a date when a server was activated. A server sends this information to CLN
+* **Registered** — a date when a server was activated. A server sends this information to TuxCare portal
 * **Installed products** — shows a logo of a product activated on a server
 * **Actions**
     * To remove an item, click on ![](/images/remove.png)
@@ -308,7 +308,7 @@ The following tabs are available:
 
 All fields marked * are required.
 
-* **API secret key** – use this key with CLN API
+* **API secret key** – use this key with TuxCare portal API
 * **IM Upgrade URL** – URL for upgrade Imunify products if it is not  the default one
 
 To change the password, click _Change password_.
