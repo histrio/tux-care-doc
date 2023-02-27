@@ -1,7 +1,7 @@
 {
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs && echo 'User-agent: *\\nDisallow: /' > docs/.vuepress/dist/robots.txt"
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "@vuepress/plugin-google-analytics": "^1.4.1",
