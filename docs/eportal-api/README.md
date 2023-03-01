@@ -416,6 +416,70 @@ Enable libcare patchset `U20200506_01` in `main` and `test-feed` feeds:
 curl -X POST -u admin 'https://eportal.corp.com/admin/api/patchsets/manage?patchset=U20200506_01&feed=main&feed=test-feed&product=user&action=enable'
 ```
 
+## List users
+
+**GET /admin/api/users/**
+
+Returns list of existing users.
+
+Requires read permissions and accepts basic authorization.
+
+**Response:**
+
+```json
+{
+  "result": [
+    {
+      "id": 1,
+      "username": "test",
+      "description": "test user",
+      "readonly": false
+    },
+    ...
+  ]
+}
+```
+
+
+**Example:**
+
+```
+curl -u admin https://eportal.corp.com/admin/api/users/
+```
+
+
+## Set tags
+
+**POST /admin/api/set_tags**
+
+Allows assign tags to server
+
+Requires write permissions and accepts basic authorization.
+
+**Query string parameters:**
+
+* `server_id`: String, required. ID of the server to attach tags.
+* `tags`: String, optional. String with semicolon divided tags. If the parameter is not presented, all tags will be removed
+
+These parameters can also be provided in the JSON body with the header `Content-Type: application/json`
+
+**Response:**
+
+```json
+{
+  "result": "ok"
+}
+```
+
+**Example:**
+
+Assign tags `test` and `stage` to server with id `test-centos`
+
+```
+curl -X POST -u admin 'https://eportal.corp.com/admin/api/set_tags?server_id=test-centos&tags=test;stage'
+```
+
+
 ## Configuration manager integration
 
 ### Ansible playbook
