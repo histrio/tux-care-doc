@@ -206,6 +206,7 @@ $ /usr/bin/kcarectl --patch-info
 |`--unload` | Unload patches.|
 |`--auto-update` | Check if update is needed and update.|
 |`--patch-info` | Lists applied patches.|
+| `--status` | Return a status of an update. Refer to the exit code: `0` - host is updated to latest patch level, `1` - there are no applied patches, `2` - there are new not applied patches, `3` - kernel is unsupported |
 |`--force  [since 2.3] ` | When used with update, forces applying the patch even if unable to freeze some threads.|
 |`--uname` | Prints safe kernel version.|
 |`--license-info` | Output current license info.|
